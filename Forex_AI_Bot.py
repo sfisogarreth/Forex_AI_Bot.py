@@ -1,269 +1,433 @@
-# --- SECTION 1: IMPORTS & BRAIN TOOLS ---
-import talib as ta  # WHAT: Technical Analysis Library. WHY: Calculates RSI, SMA, ADX. NEXT: Math for the bot.
-import numpy as np  # WHAT: Number cruncher. WHY: Fast math for arrays. NEXT: Data formatting.
-import pandas as pd # WHAT: Data tables. WHY: Holds price history like Excel. NEXT: Organizing indicators.
-import datetime as dt # WHAT: Time tool. WHY: Tracks market hours. NEXT: Checking if market is open.
-import MetaTrader5 as mt5 # WHAT: The Broker. WHY: Executes the trades. NEXT: Buying/Selling.
-import yfinance as yf # WHAT: Data source. WHY: Gets historical data to train the AI. NEXT: Learning.
-import time # WHAT: Clock. WHY: Pauses the bot. NEXT: Prevents crashing.
+# --- section 1: imports & brain tools ---
+import talib as ta  # bringing in TA-Lib to handle the heavy math for indicators like RSI and ADX so we don't have to write complex formulas from scratch
+import numpy as np  # fast number cruncher for huge lists of price data
+import pandas as pd # basically an invisible excel spreadsheet inside the code to organize our history
+import datetime as dt # time tracker to know when the market is open and when the hour changes
+import MetaTrader5 as mt5 # the bridge to the broker to actually pull the trigger on trades
+import time # simple pause function to stop the loop from crashing the computer
 
-# UPGRADE ALERT: We replaced RandomForest with GradientBoosting.
-# WHY: Random Forest is like a vote. Gradient Boosting is like a team that learns from mistakes.
-# NEXT: Smarter predictions.
+# upgrading the brain to Gradient Boosting 
+# this is way better than random forest because it acts like a smart team that passes mistakes down the line and learns from them instead of just taking random votes
+# it basically builds one small decision tree, looks at what it got wrong, and builds the next tree specifically to fix those mistakes
 from sklearn.ensemble import GradientBoostingClassifier 
 
-# --- SECTION 2: CONFIGURATION (THE RULES) ---
-SYMBOL = "EURUSD"
+# grabbing this balancing tool to mathematically punish the AI if it gets biased and just wants to buy all the time
+# because the market goes up more often than down over long periods, ai naturally gets lazy and just guesses "buy" to get a good score. this tool forces it to work hard for "sell" signals too.
+from sklearn.utils.class_weight import compute_sample_weight
 
-# LEARNING NOTE: Timeframes
-# WHAT: We are trading the 4-Hour chart.
-# WHY: 4H trends are more stable than 1H or 15M. Less "noise" (random movement).
+
+# --- section 2: configuration (exness connection) ---
+SYMBOL = "EURUSDm"
+
+# use these for your demo account first
+MY_LOGIN = 298625031         
+MY_PASSWORD = "Maybe14031997&"  
+MY_SERVER = "Exness-MT5Trial9"
+
+# trading the 4h chart to filter out all that random noise you get on the 15-minute charts
+# big banks and institutions trade the 4h and daily charts, so we want to ride their waves instead of fighting the chop
 TIMEFRAME = mt5.TIMEFRAME_H4 
 
-# UPGRADE ALERT: The "Confidence" Filter.
-# WHAT: We only trade if the AI is >60% sure. 
-# WHY: The old bot traded at 51% (a coin flip). We want high conviction only.
-CONFIDENCE_THRESHOLD = 0.60 
+# bumped this up to 70% meaning the AI has to be screaming with confidence before we risk money
+# we don't want the bot gambling on 51% guesses. 0.70 means it sees a very clear historical pattern
+CONFIDENCE_THRESHOLD = 0.70 
 
-# UPGRADE ALERT: The "Choppy Market" Filter.
-# WHAT: Average Directional Index (ADX).
-# WHY: If ADX < 25, the market is flat/choppy. We lose money in chop.
-# NEXT: We will refuse to trade if ADX is low.
-ADX_THRESHOLD = 25 
+# choppy market filter using adx... anything under 22 means the market is dead and moving sideways so we stay out
+# adx doesn't tell us if it's going up or down, it just tells us if there is enough momentum to actually hit our take profit
+ADX_THRESHOLD = 22 
 
-# --- SECTION 3: THE TRADING HANDS ---
+
+# --- section 3: the trading hands ---
 def check_open_positions(symbol):
-    # WHAT: Position Checker.
-    # WHY: You asked to trade "till it takes profit or stop loss".
-    # LOGIC: If we already have a trade open, we MUST NOT open another one.
-    # ALTERNATIVE: We could "pyramid" (add more trades), but that is high risk.
+    # quick safety check before doing anything
+    # if a trade is already running just hold fire because we only want one trade open at a time to manage risk
+    # this stops the bot from opening 50 trades in a row and blowing your account if it gets confused
     positions = mt5.positions_get(symbol=symbol)
     
     if positions is None or len(positions) == 0:
-        return False # No positions open, safe to trade.
+        return False # coast is clear, no trades open
     
-    return True # Position exists, HOLD FIRE.
+    return True # already in a trade so just wait for it to hit stop loss or take profit
 
 def send_trade_order(symbol, type_trade, price, sl, tp):
-    # WHAT: The order package.
-    # WHY: MT5 needs specific details to accept a trade.
+    # packaging the exact order details to send over to the mt5 broker
     request = {
         "action": mt5.TRADE_ACTION_DEAL,
         "symbol": symbol,
-        "volume": 0.01,
-        "type": type_trade,
-        "price": price,
-        "sl": sl,
-        "tp": tp,
-        "magic": 234000, # WHAT: ID number. WHY: Lets us track *this* bot's trades.
+        "volume": 0.01, # trading exactly one micro lot so we only risk pennies while testing
+        "type": type_trade, # tells the broker if it is a buy or a sell
+        "price": price, # the exact ask or bid price right this second
+        "sl": sl, # where we cut our losses
+        "tp": tp, # where we take our money and run
+        "magic": 234000, # tracking id so we know exactly which trades came from this specific bot
         "comment": "Smart AI H4 Bot",
-        "type_time": mt5.ORDER_TIME_GTC,
-        "type_filling": mt5.ORDER_FILLING_FOK, # WHAT: Fill or Kill. WHY: Fast execution.
+        "type_time": mt5.ORDER_TIME_GTC, # good till cancelled
+        "type_filling": mt5.ORDER_FILLING_FOK, # fill or kill meaning give me the exact price right now or cancel it entirely
     }
     
+    # sending the package to exness
     result = mt5.order_send(request)
     
-    # FAILSAFE: If FOK fails, try IOC (Immediate or Cancel).
+    # failsafe in case the market is moving too fast and rejects the FOK order
+    # just immediately try again with IOC (immediate or cancel) to make sure we get into the trade before it leaves without us
     if result.retcode != mt5.TRADE_RETCODE_DONE:
         request["type_filling"] = mt5.ORDER_FILLING_IOC
         result = mt5.order_send(request)
         
     return result
 
-# --- SECTION 4: THE BRAIN (DATA PROCESSING) ---
 
+# --- section 4: the brain (data processing) ---
 def resample_to_4h(df_1h):
-    # LEARNING NOTE: Resampling (The "Magic" Trick)
-    # WHAT: Turning 1-hour candles into 4-hour candles.
-    # WHY: Yahoo Finance gives great 1H data, but sometimes 4H data is missing or messy.
-    # HOW IT WORKS:
-    #   - Open price = The Open of the 1st hour.
-    #   - High price = The Highest price of the 4 hours.
-    #   - Low price = The Lowest price of the 4 hours.
-    #   - Close price = The Close of the 4th hour.
-    
-    # Logic: Group by 4 Hours
+    # neat trick to build our own super clean 4h candles directly from 1h broker data
+    # we do this because sometimes asking the broker directly for 4h data gives us weird time zones
     aggregation = {
-        'Open': 'first',
-        'High': 'max',
-        'Low': 'min',
-        'Close': 'last',
-        'Volume': 'sum'
+        'Open': 'first', # the opening price of the first hour
+        'High': 'max',   # the highest price reached during the 4 hours
+        'Low': 'min',    # the lowest price reached during the 4 hours
+        'Close': 'last', # the closing price of the final hour
+        'Volume': 'sum'  # total activity combined
     }
     
-    # Execute the math
+    # pandas doing the heavy math to group 4 individual hours into one solid block
     df_4h = df_1h.resample('4h').agg(aggregation)
     
-    # Cleanup: Remove the last row if the 4 hours aren't finished yet.
+    # drop the very last row since that 4h candle is still moving and hasn't closed yet
+    # we never want the ai making decisions on a candle that is still jumping around
     df_4h.dropna(inplace=True)
     return df_4h
 
 def prepare_data(df):
-    # WHAT: Adding indicators.
-    # WHY: Raw price isn't enough. The AI need "features" (clues) to learn.
+    # feeding the ai the clues it needs to understand the market breathing
+    # raw prices aren't enough, it needs context to see the invisible trends
     
-    # 1. Trend Indicators
-    df["SMA_50"] = ta.SMA(df["Close"], timeperiod=50) # Medium trend
-    df["SMA_200"] = ta.SMA(df["Close"], timeperiod=200) # Long term trend
+    # adding moving averages for the macro and micro trend direction
+    df["SMA_50"] = ta.SMA(df["Close"], timeperiod=50) # fast trend
+    df["SMA_200"] = ta.SMA(df["Close"], timeperiod=100) # the heavy trend boss to veto bad trades
     
-    # 2. Oscillators (Overbought/Oversold)
+    # rsi to see if we are overbought or oversold (like a rubber band stretched too far)
     df["RSI"] = ta.RSI(df["Close"], timeperiod=14)
     
-    # 3. Volatility (How much does price move?)
+    # atr to measure the wildness and volatility so we can set dynamic stop losses later
+    # if atr is high, the market is violent, so we need wider stops to survive
     df["ATR"] = ta.ATR(df["High"], df["Low"], df["Close"], timeperiod=14)
     
-    # UPGRADE ALERT: ADX (Trend Strength)
-    # WHAT: Measures *how strong* the trend is, not just direction.
-    # WHY: Tells us to stay away if the market is sleeping.
+    # adx to check trend strength (are we actually moving somewhere or just pacing back and forth?)
     df["ADX"] = ta.ADX(df["High"], df["Low"], df["Close"], timeperiod=14)
     
-    # UPGRADE ALERT: Lag Features (Momentum)
-    # WHAT: "What was RSI yesterday?"
-    # WHY: Knowing *change* is better than knowing *value*. 
-    # Example: RSI 60 is okay. RSI moving from 30 to 60 is BULLISH.
+    # pro trick here adding lag features to show momentum
+    # showing the ai what the rsi was one candle ago is way better because it sees the actual movement not just a flat number
     df["RSI_Lag1"] = df["RSI"].shift(1)
     df["Close_Lag1"] = df["Close"].shift(1)
     
-    # Cleanup: Remove rows with empty values (NaN) created by indicators.
+    # clean up the blank spaces created by indicator math at the beginning of the timeline
     df.dropna(inplace=True)
     return df
 
-# --- SECTION 5: THE STRATEGY LOOP ---
+
+# --- section 5: the strategy loop ---
+
+# i am telling the bot to log in specifically to my exness account
+# this throws the physical switch to connect your code to your money
+if not mt5.initialize(login=MY_LOGIN, password=MY_PASSWORD, server=MY_SERVER):
+    print(f"!!! LOGIN FAILED !!! Error: {mt5.last_error()}")
+    mt5.shutdown()
+    quit() 
+else:
+    print(f">>> SUCCESS: Logged into Exness Account {MY_LOGIN}")
+    # the fix: python is too fast! we must force it to wait 3 seconds here.
+    # this gives the mt5 desktop app time to fully sync with the exness server before we ask for data.
+    time.sleep(3)
+    
 print(f"Morning Mr Mazivanhanga ::: System Online :: {SYMBOL} H4 Strategy Active.")
 print("Waiting for top of the hour (Minute :00)...")
 
+# giving the bot a memory starting at -1
+# this ensures the heavy brain training only happens once a day so the hourly loop stays lightning fast
+last_trained_day = -1 
+model = GradientBoostingClassifier(n_estimators=100, learning_rate=0.1, max_depth=3, random_state=42)
+
+
+# --- the mock exam (testing the robot before live trading) ---
+from sklearn.metrics import accuracy_score, precision_score, recall_score, confusion_matrix
+from sklearn.model_selection import train_test_split
+print("--- RUNNING AI MOCK EXAM ---")
+
+# the fix: we already logged in perfectly at the top of section 5! 
+# asking mt5 to log in *again* right here causes a double-knock, making it panic and throw the -1 error.
+# i have deleted the second mt5.initialize() command entirely.
+
+# smart check: making absolutely sure exness isn't hiding a small letter at the end of eurusd
+symbol_info = mt5.symbol_info(SYMBOL)
+
+if symbol_info is None:
+    print(f"!!! error: exness says '{SYMBOL}' does not exist on this specific account.")
+    # asking exness what it actually calls eurusd behind the scenes
+    all_symbols = mt5.symbols_get()
+    eurusd_symbols = [s.name for s in all_symbols if "EURUSD" in s.name]
+    print(f"!!! please go to section 2 and change SYMBOL = '{SYMBOL}' to one of these exact names: {eurusd_symbols}")
+    quit()
+
+# forcing the mt5 terminal to physically select the correct symbol in the market watch
+if not mt5.symbol_select(SYMBOL, True):
+    print(f"failed to wake up {SYMBOL} in mt5. error: {mt5.last_error()}")
+    quit()
+# asking for 10,000 hourly candles to study
+rates = mt5.copy_rates_from_pos(SYMBOL, mt5.TIMEFRAME_H1, 0, 10000)
+
+if rates is None or len(rates) == 0:
+    # adding the exact mt5 error code so we stop guessing if it fails
+    print(f"!!! MT5 INTERNAL ERROR CODE: {mt5.last_error()}")
+    print("!!! error: the broker didn't send the data. please open a EURUSD H1 chart in MT5 and scroll left to download history.")
+    quit()
+
+# converting the raw numbers into our invisible spreadsheet
+data = pd.DataFrame(rates)
+
+# ensuring the time column is handled correctly regardless of broker version
+# some brokers call it 'time', some call it 'Date'. this code forces it to be 'Date' so our math works.
+if 'time' in data.columns:
+    data['time'] = pd.to_datetime(data['time'], unit='s')
+    data.rename(columns={'time': 'Date', 'open': 'Open', 'high': 'High', 'low': 'Low', 'close': 'Close', 'tick_volume': 'Volume'}, inplace=True)
+elif 'Date' not in data.columns:
+    print("!!! error: 'time' column not found in mock exam data. check broker feed.")
+    quit()
+    
+# making time the backbone of our spreadsheet
+data.set_index('Date', inplace=True)
+
+# format to 4h and add the technical indicators
+df_4h = resample_to_4h(data)
+df = prepare_data(df_4h)
+
+# building the answer key
+# if the next close is higher than the current close then it's a 1 (buy) otherwise 0 (sell)
+df["Target"] = np.where(df["Close"].shift(-1) > df["Close"], 1, 0)
+
+# setting up the study material and the answers
+features = ["SMA_50", "SMA_200", "RSI", "RSI_Lag1", "ADX", "ATR"]
+X = df[features] # the clues
+y = df["Target"] # the answers
+
+# chopping the timeline 80% for studying and 20% for the hidden exam
+# shuffle is false because time order matters and we cant mix up the days like a deck of cards
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, shuffle=False)
+
+print("1. AI is studying the past data...")
+
+# calculating class weights so the bot gets punished if it just lazily guesses buy all the time
+exam_weights = compute_sample_weight(class_weight='balanced', y=y_train)
+
+# creating the actual brain structure
+test_model = GradientBoostingClassifier(n_estimators=100, learning_rate=0.1, max_depth=3, random_state=42)
+
+# forcing the bot to study with the balancing weights attached
+test_model.fit(X_train, y_train, sample_weight=exam_weights)
+
+print("2. AI is taking the strict final exam using our custom rules...")
+
+# instead of asking for a raw guess we ask the ai for the exact percentages using predict_proba
+exam_probabilities = test_model.predict_proba(X_test)
+
+# we need empty lists to hold our strict filtered trades
+strict_predictions = []
+strict_y_test = [] # keeping track of the actual answers only for the trades we actually took
+
+# looping through every single candle in the hidden exam
+for i in range(len(X_test)):
+    prob_down = exam_probabilities[i][0] # confidence for a sell
+    prob_up = exam_probabilities[i][1] # confidence for a buy
+    
+    # pulling the price and the trend boss line for this specific past candle
+    # since we are doing a mock exam we have to simulate looking at the chart visually
+    price = df.iloc[len(X_train) + i]['Close'] 
+    sma_200 = X_test.iloc[i]['SMA_200']
+    actual_target = y_test.iloc[i]
+    
+    # simulating the buy logic
+    if prob_up > CONFIDENCE_THRESHOLD:
+        if price > sma_200:
+            strict_predictions.append(1) # trade approved by both ai and the trend boss
+            strict_y_test.append(actual_target)
+            
+    # simulating the sell logic
+    elif prob_down > CONFIDENCE_THRESHOLD:
+        if price < sma_200:
+            strict_predictions.append(0) # trade approved
+            strict_y_test.append(actual_target)
+
+# checking if the bot actually took any trades under these strict rules
+if len(strict_predictions) == 0:
+    print("\n* Wow! The rules were so strict the bot refused to trade entirely.")
+    print("* This is actually better than losing money in a bad market.")
+else:
+    # 5. the new report card (only grading the trades we actually took)
+    acc = accuracy_score(strict_y_test, strict_predictions)
+    print(f"\n* Strict Overall Accuracy: {acc * 100:.2f}%")
+
+    # precision is the most important one now
+    # precision means: out of all the times the bot said "trade", how many were actually winners?
+    prec = precision_score(strict_y_test, strict_predictions, zero_division=0)
+    print(f"* Strict Trading Precision: {prec * 100:.2f}%")
+
+    print(f"\n* Total Trades Taken: {len(strict_predictions)} out of {len(X_test)} possible candles")
+    
+    print("\n* Strict Confusion Matrix (Scorecard):")
+    print(confusion_matrix(strict_y_test, strict_predictions))
+    print("----------------------------\n")
+
+
+# --- live trading loop starts here ---
 while True:
     now = dt.datetime.now()
     
-    # WHAT: Check if it's a weekday (Mon=0, Sun=6).
-    # WHY: Forex is closed weekends.
+    # check if its a weekday because forex sleeps on weekends
     if now.weekday() < 5: 
         
-        # LEARNING NOTE: The Hourly Trigger
-        # WHAT: We check `now.minute`.
-        # WHY: We want to trade the *close* of the candle.
-        # Since we are building 4H candles from 1H data, we check every hour to see
-        # if a new 4H block has just finished.
+        # waiting right at the start of a new hour 
+        # doing it between minute 0 and 2 gives the broker time to finalize the previous candle
         if 0 <= now.minute <= 2:
             
-            # CHECK: Do we have a trade open?
-            # LOGIC: If yes, we skip everything. We wait for the Stop Loss or Take Profit to hit.
-            mt5.initialize()
+            # i removed the duplicate naked mt5.initialize() here too to prevent connection drops
+            mt5.initialize(login=MY_LOGIN, password=MY_PASSWORD, server=MY_SERVER)
+            
+            # connect to broker and see if we are already in a trade
             if check_open_positions(SYMBOL):
                 print(f"[{now.hour}:{now.minute}] Trade is LIVE. Managing position... (No new entry)")
-                mt5.shutdown()
-                time.sleep(300) # Sleep 5 mins to let the hour pass.
+                mt5.shutdown() # disconnect temporarily to save computer memory
+                time.sleep(300) # sleep for 5 minutes and check again
                 continue
             
             print(f"\n--- ANALYZING 4H MARKET at {now.hour}:{now.minute} ---")
             
-            # STEP A: GET DATA (1 Hour)
-            # WHAT: Download last 60 days of 1H data.
-            # WHY: We need lots of 1H data to build enough 4H candles for the AI.
-            data = yf.download("EURUSD=X", period="60d", interval="1h", auto_adjust=True, progress=False)
+            # pulling the freshest data direct from server for perfect accuracy
+            rates = mt5.copy_rates_from_pos(SYMBOL, mt5.TIMEFRAME_H1, 0, 1500)
             
-            if data.empty:
-                print("Error: No data fetched. Retrying next hour.")
+            if rates is None or len(rates) == 0:
+                print("Error: No data fetched from MT5. Retrying next hour.")
                 time.sleep(65)
                 continue
 
-            # CLEANUP: Fix column format if yfinance gives us complex headers.
-            if isinstance(data.columns, pd.MultiIndex):
-                data.columns = data.columns.get_level_values(0)
+            # turning raw computer arrays into a readable dataframe table
+            data = pd.DataFrame(rates)
+            
+            # ensuring the live data also uses the correct 'Date' index
+            # making sure live data matches our mock exam data perfectly
+            if 'time' in data.columns:
+                data['time'] = pd.to_datetime(data['time'], unit='s')
+                data.rename(columns={'time': 'Date', 'open': 'Open', 'high': 'High', 'low': 'Low', 'close': 'Close', 'tick_volume': 'Volume'}, inplace=True)
+                data.set_index('Date', inplace=True)
+            elif 'Date' not in data.columns:
+                print("Error: 'time' column not found in Live Market data.")
+                continue
 
-            # STEP B: CONVERT TO 4-HOUR (Resampling)
-            # WHAT: Run the math function we wrote above.
+            # squish to 4h and add clues
             df_4h = resample_to_4h(data)
-
-            # STEP C: CALCULATE INTELLIGENCE
-            # WHAT: Run the `prepare_data` function on our new 4H data.
             df = prepare_data(df_4h)
             
-            # STEP D: DEFINE TARGET & TRAIN
-            # WHAT: Create the "Target" column. 
-            # LOGIC: If next 4H close > current close, Target = 1 (Buy).
+            # target column for the daily retrain
             df["Target"] = np.where(df["Close"].shift(-1) > df["Close"], 1, 0)
             
-            # WHAT: Select the columns the AI gets to see.
             features = ["SMA_50", "SMA_200", "RSI", "RSI_Lag1", "ADX", "ATR"]
             
-            # WHAT: Train on all past data (except the very last candle which has no future yet).
-            train_df = df.iloc[:-1]
-            X = train_df[features]
-            y = train_df["Target"]
+            # daily memory check to see if we need to do a heavy workout today
+            # we only want to retrain the brain once a day so the hourly checks happen instantly
+            if now.day != last_trained_day:
+                print(">>> 🧠 Waking up the AI: Training the Brain on fresh data...")
+                
+                # drop the last unfinished candle so we only train on closed history
+                train_df = df.iloc[:-1]
+                X = train_df[features]
+                y = train_df["Target"]
+                
+                # applying the same balancing trick to the live brain
+                live_weights = compute_sample_weight(class_weight='balanced', y=y)
+                
+                # building the real live brain
+                model.fit(X, y, sample_weight=live_weights) 
+                
+                # updating memory so we skip this heavy math until tomorrow
+                last_trained_day = now.day 
+                print(">>> ✅ Brain Trained! Ready for lightning-fast trading.")
+            else:
+                print(">>> ⚡ Brain already trained today. Skipping straight to live prediction.")
             
-            # UPGRADE: Gradient Boosting
-            # WHAT: A stronger learning model than Random Forest.
-            # WHY: It builds trees sequentially, correcting errors from the previous tree.
-            model = GradientBoostingClassifier(n_estimators=100, learning_rate=0.1, max_depth=3, random_state=42)
-            model.fit(X, y)
-            
-            # STEP E: LIVE PREDICTION
-            # WHAT: Get the very last row (the 4H candle that just closed).
+            # grabbing the very last candle to predict what happens right now
             current_data = df.iloc[[-1]][features]
             
-            # UPGRADE: PROBABILITY CHECK
-            # WHAT: model.predict_proba() instead of model.predict().
-            # WHY: Gives us % confidence (e.g., 65% Buy) instead of just "Buy".
+            # getting the exact percentage of confidence instead of just a raw guess
             probability = model.predict_proba(current_data)[0]
-            # probability[0] = Chance of Down (Sell)
-            # probability[1] = Chance of Up (Buy)
             
             current_adx = current_data["ADX"].values[0]
             current_atr = current_data["ATR"].values[0]
             current_price = df.iloc[-1]["Close"]
             
+            # pulling the trend boss line to make sure we don't buy in a crash
+            current_sma_200 = current_data["SMA_200"].values[0]
+            
             print(f"Current ADX (4H): {current_adx:.2f} (Trend Strength)")
             print(f"Bot_Mazi Confidence: SELL {probability[0]*100:.1f}% | BUY {probability[1]*100:.1f}%")
 
-            # STEP F: EXECUTION LOGIC (The Filters)
+            # execution logic and filters
             
-            # FILTER 1: THE CHOPPY MARKET FILTER
-            # LOGIC: If ADX is below 25, the market is moving sideways. Do not trade.
+            # checking if the market is actually moving or just chopping sideways
             if current_adx > ADX_THRESHOLD:
                 
-                # FILTER 2: THE CONFIDENCE FILTER
-                # LOGIC: Only trade if confidence is > 60%.
-                if probability[1] > CONFIDENCE_THRESHOLD:
-                    print(">>> SIGNAL: STRONG BUY (High Confidence)")
+                # making sure the bot is super confident before moving forward
+                if probability[1] > CONFIDENCE_THRESHOLD or probability[0] > CONFIDENCE_THRESHOLD:
                     
-                    # Risk Management (4H): 
-                    # WHAT: 4H candles are big, so Stops must be wider.
-                    # SL is 1.5x ATR, TP is 2.5x ATR (Aiming for a big swing).
-                    sl = current_price - (current_atr * 1.5)
-                    tp = current_price + (current_atr * 2.5) 
+                    # split second tick check to prevent crashing if the broker connection drops mid-thought
+                    tick = mt5.symbol_info_tick(SYMBOL)
                     
-                    send_trade_order(SYMBOL, mt5.ORDER_TYPE_BUY, mt5.symbol_info_tick(SYMBOL).ask, sl, tp)
-                    
-                    # SLEEP: We traded. Now sleep 5 mins to get out of the "Minute 0" window.
-                    time.sleep(300)
-                    
-                elif probability[0] > CONFIDENCE_THRESHOLD:
-                    print(">>> SIGNAL: STRONG SELL (High Confidence)")
-                    
-                    sl = current_price + (current_atr * 1.5)
-                    tp = current_price - (current_atr * 2.5)
-                    
-                    send_trade_order(SYMBOL, mt5.ORDER_TYPE_SELL, mt5.symbol_info_tick(SYMBOL).bid, sl, tp)
-                    
-                    time.sleep(300)
-                    
-                else:
-                    # WHAT: Confidence was between 40% and 60%.
-                    # WHY: Too risky. We sit on our hands.
-                    print(">>> Mr Mazi The SIGNAL is weak in (retracement): WEAK / UNCERTAIN. Therefore Dont Trade.")
+                    if tick is None:
+                        print(f"CRITICAL WARNING: Cannot get live price for {SYMBOL}. Skipping trade to avoid crash.")
+                    else:
+                        
+                        # logic for going long (buying)
+                        if probability[1] > CONFIDENCE_THRESHOLD:
+                            # trend boss veto rule 
+                            # physically blocking the trade if trying to buy under the 200 moving average
+                            if current_price > current_sma_200:
+                                print(">>> SIGNAL: STRONG BUY (High Confidence + Macro Uptrend)")
+                                
+                                # setting dynamic stops based on current volatility instead of rigid pips
+                                # if the market is crazy today, atr gives us a wider breathing room
+                                sl = current_price - (current_atr * 1.5)
+                                tp = current_price + (current_atr * 2.5) 
+                                
+                                send_trade_order(SYMBOL, mt5.ORDER_TYPE_BUY, tick.ask, sl, tp)
+                                time.sleep(300) # sleep for 5 minutes after firing
+                            else:
+                                print(">>> VETO: AI wants to Buy, but price is BELOW the 200 SMA. Trade Cancelled!")
+                            
+                        # logic for shorting (selling)
+                        elif probability[0] > CONFIDENCE_THRESHOLD:
+                            # trend boss veto rule for sells
+                            if current_price < current_sma_200:
+                                print(">>> SIGNAL: STRONG SELL (High Confidence + Macro Downtrend)")
+                                
+                                sl = current_price + (current_atr * 1.5)
+                                tp = current_price - (current_atr * 2.5)
+                                
+                                send_trade_order(SYMBOL, mt5.ORDER_TYPE_SELL, tick.bid, sl, tp)
+                                time.sleep(300)
+                            else:
+                                print(">>> VETO: AI wants to Sell, but price is ABOVE the 200 SMA. Trade Cancelled!")
                 
+                else:
+                    # just sitting on hands if confidence is hovering around 50/50
+                    print(">>> Mr Mazi The SIGNAL is weak (retracement): WEAK / UNCERTAIN. Therefore Dont Trade.")
+            
             else:
-                # WHAT: ADX was < 25.
-                # WHY: Market is flat. Strategies fail here.
+                # low adx warning
                 print(">>> MARKET CHOPPY (Low ADX). Staying safe (No Trade).")
 
+            # cutting the connection to keep memory usage low while waiting for the next hour
             mt5.shutdown()
             print("Analysis Complete. Sleeping...")
             
-            # SAFETY SLEEP: Sleep 60s so we don't accidentally run again in the same minute.
+            # forcing a full minute sleep so the loop doesn't accidentally run twice in the same minute window
             time.sleep(60)
             
-    # WHAT: Heartbeat. 
-    # WHY: Checks the clock every 30s to see if the next hour has started.
+    # the main heartbeat just waking up every half minute to check the clock
     time.sleep(30)
