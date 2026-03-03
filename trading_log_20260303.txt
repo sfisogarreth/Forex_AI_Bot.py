@@ -1,0 +1,2043 @@
+2026-03-03 16:13:20,642 [INFO] Connected to Exness account 298625031
+2026-03-03 16:13:24,030 [INFO] ============================================================
+2026-03-03 16:13:24,038 [INFO] STARTING WALK-FORWARD VALIDATION (Mock Exam)
+2026-03-03 16:13:24,045 [INFO] ============================================================
+2026-03-03 16:13:47,990 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:13:48,496 [INFO] Training gbm...
+2026-03-03 16:13:51,691 [INFO] Training rf...
+2026-03-03 16:14:00,128 [INFO] Training et...
+2026-03-03 16:14:01,519 [INFO] 
+GBM Top 5 Features:
+ADX                 0.099872
+Return_Lag4         0.086183
+Dist_From_High20    0.082532
+MACD_Hist           0.070574
+RSI_Momentum        0.070534
+dtype: float64
+2026-03-03 16:14:01,860 [INFO] 
+RF Top 5 Features:
+Dist_From_High20    0.097941
+ADX                 0.072188
+SMA_200             0.065129
+ATR                 0.060390
+MACD_Hist           0.060386
+dtype: float64
+2026-03-03 16:14:02,110 [INFO] 
+ET Top 5 Features:
+Is_NY               0.099426
+SMA_200             0.097176
+Dist_From_High20    0.079178
+ADX                 0.072793
+Is_London           0.070421
+dtype: float64
+2026-03-03 16:14:31,810 [INFO] Walk-forward progress: 550/4801
+2026-03-03 16:14:31,832 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:14:31,845 [INFO] Training gbm...
+2026-03-03 16:14:34,128 [INFO] Training rf...
+2026-03-03 16:14:35,010 [INFO] Training et...
+2026-03-03 16:14:35,571 [INFO] 
+GBM Top 5 Features:
+ADX                 0.117934
+Dist_From_High20    0.093172
+MACD_Hist           0.080434
+RSI_Momentum        0.077614
+BB_Position         0.063493
+dtype: float64
+2026-03-03 16:14:35,781 [INFO] 
+RF Top 5 Features:
+Dist_From_High20    0.084156
+ADX                 0.078217
+MACD_Hist           0.064106
+RSI                 0.063212
+RSI_Momentum        0.062866
+dtype: float64
+2026-03-03 16:14:35,971 [INFO] 
+ET Top 5 Features:
+Is_London           0.106866
+Dist_From_High20    0.082933
+Is_NY               0.080571
+SMA_200             0.079933
+ADX                 0.063049
+dtype: float64
+2026-03-03 16:14:54,315 [INFO] Walk-forward progress: 600/4801
+2026-03-03 16:14:54,464 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:14:54,492 [INFO] Training gbm...
+2026-03-03 16:14:55,779 [INFO] Training rf...
+2026-03-03 16:14:56,445 [INFO] Training et...
+2026-03-03 16:14:56,925 [INFO] 
+GBM Top 5 Features:
+ADX                 0.110555
+Dist_From_High20    0.087559
+BB_Position         0.077543
+RSI_Momentum        0.071242
+Return_Lag4         0.067172
+dtype: float64
+2026-03-03 16:14:57,095 [INFO] 
+RF Top 5 Features:
+Dist_From_High20    0.083435
+BB_Position         0.073452
+RSI_Momentum        0.070510
+RSI                 0.062312
+ADX                 0.061618
+dtype: float64
+2026-03-03 16:14:57,263 [INFO] 
+ET Top 5 Features:
+Is_London           0.128278
+Is_NY               0.088621
+SMA_200             0.087284
+Dist_From_High20    0.077849
+MACD_Hist           0.058105
+dtype: float64
+2026-03-03 16:15:18,371 [INFO] Walk-forward progress: 650/4801
+2026-03-03 16:15:18,380 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:15:18,390 [INFO] Training gbm...
+2026-03-03 16:15:19,897 [INFO] Training rf...
+2026-03-03 16:15:20,560 [INFO] Training et...
+2026-03-03 16:15:21,036 [INFO] 
+GBM Top 5 Features:
+ADX            0.112046
+MACD_Hist      0.083922
+BB_Position    0.068983
+Return_Lag4    0.066284
+SMA_200        0.062804
+dtype: float64
+2026-03-03 16:15:21,206 [INFO] 
+RF Top 5 Features:
+Return_Lag1     0.072569
+MACD_Hist       0.070750
+RSI_Momentum    0.069279
+BB_Position     0.069122
+SMA_200         0.065796
+dtype: float64
+2026-03-03 16:15:21,383 [INFO] 
+ET Top 5 Features:
+Is_London           0.112047
+Is_NY               0.097240
+SMA_200             0.069684
+Dist_From_High20    0.069629
+MACD_Hist           0.060870
+dtype: float64
+2026-03-03 16:15:48,896 [INFO] Walk-forward progress: 700/4801
+2026-03-03 16:15:48,901 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:15:48,908 [INFO] Training gbm...
+2026-03-03 16:15:50,470 [INFO] Training rf...
+2026-03-03 16:15:51,093 [INFO] Training et...
+2026-03-03 16:15:51,569 [INFO] 
+GBM Top 5 Features:
+ADX                 0.108306
+MACD_Hist           0.075439
+Return_Lag1         0.071631
+RSI_Momentum        0.064472
+Dist_From_High20    0.060449
+dtype: float64
+2026-03-03 16:15:51,717 [INFO] 
+RF Top 5 Features:
+ADX                 0.070717
+RSI_Momentum        0.070484
+Return_Lag1         0.068540
+BB_Position         0.067271
+Dist_From_High20    0.064050
+dtype: float64
+2026-03-03 16:15:51,870 [INFO] 
+ET Top 5 Features:
+Is_London           0.136189
+Is_NY               0.086593
+SMA_200             0.070076
+Dist_From_High20    0.065669
+BB_Position         0.057420
+dtype: float64
+2026-03-03 16:16:19,248 [INFO] Walk-forward progress: 750/4801
+2026-03-03 16:16:19,253 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:16:19,256 [INFO] Training gbm...
+2026-03-03 16:16:20,615 [INFO] Training rf...
+2026-03-03 16:16:21,199 [INFO] Training et...
+2026-03-03 16:16:21,578 [INFO] 
+GBM Top 5 Features:
+ADX            0.118922
+MACD_Hist      0.073751
+Return_Lag1    0.072417
+BB_Position    0.069776
+Return_Lag4    0.062276
+dtype: float64
+2026-03-03 16:16:21,734 [INFO] 
+RF Top 5 Features:
+ADX             0.084804
+RSI_Momentum    0.069593
+MACD_Hist       0.069000
+BB_Position     0.067961
+Return_Lag1     0.063191
+dtype: float64
+2026-03-03 16:16:21,888 [INFO] 
+ET Top 5 Features:
+Is_NY               0.126101
+Is_London           0.108046
+SMA_200             0.073861
+Dist_From_High20    0.064214
+BB_Position         0.055353
+dtype: float64
+2026-03-03 16:16:37,654 [INFO] Walk-forward progress: 800/4801
+2026-03-03 16:16:37,658 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:16:37,661 [INFO] Training gbm...
+2026-03-03 16:16:39,197 [INFO] Training rf...
+2026-03-03 16:16:40,005 [INFO] Training et...
+2026-03-03 16:16:40,543 [INFO] 
+GBM Top 5 Features:
+ADX             0.104290
+MACD_Hist       0.089831
+Return_Lag4     0.069262
+Return_Lag1     0.066774
+RSI_Momentum    0.063678
+dtype: float64
+2026-03-03 16:16:40,719 [INFO] 
+RF Top 5 Features:
+ADX            0.086575
+MACD_Hist      0.070990
+SMA_200        0.064990
+Return_Lag1    0.062111
+BB_Position    0.061693
+dtype: float64
+2026-03-03 16:16:40,902 [INFO] 
+ET Top 5 Features:
+Is_NY               0.137830
+Is_London           0.098028
+SMA_200             0.082377
+MACD_Hist           0.065260
+Dist_From_High20    0.052385
+dtype: float64
+2026-03-03 16:16:56,377 [INFO] Walk-forward progress: 850/4801
+2026-03-03 16:16:56,382 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:16:56,385 [INFO] Training gbm...
+2026-03-03 16:16:57,878 [INFO] Training rf...
+2026-03-03 16:16:58,461 [INFO] Training et...
+2026-03-03 16:16:58,838 [INFO] 
+GBM Top 5 Features:
+ADX                0.105770
+MACD_Hist          0.085199
+Return_Lag1        0.072251
+Dist_From_Low20    0.064129
+RSI_Momentum       0.061758
+dtype: float64
+2026-03-03 16:16:58,978 [INFO] 
+RF Top 5 Features:
+ADX            0.080810
+MACD_Hist      0.077491
+SMA_200        0.068097
+BB_Position    0.063989
+RSI            0.059135
+dtype: float64
+2026-03-03 16:16:59,157 [INFO] 
+ET Top 5 Features:
+Is_NY               0.160959
+Is_London           0.089016
+SMA_200             0.083968
+MACD_Hist           0.061471
+Dist_From_SMA200    0.053843
+dtype: float64
+2026-03-03 16:17:14,717 [INFO] Walk-forward progress: 900/4801
+2026-03-03 16:17:14,722 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:17:14,726 [INFO] Training gbm...
+2026-03-03 16:17:16,156 [INFO] Training rf...
+2026-03-03 16:17:16,728 [INFO] Training et...
+2026-03-03 16:17:17,110 [INFO] 
+GBM Top 5 Features:
+ADX             0.104102
+MACD_Hist       0.093920
+Return_Lag4     0.070169
+Return_Lag1     0.069554
+RSI_Momentum    0.066948
+dtype: float64
+2026-03-03 16:17:17,276 [INFO] 
+RF Top 5 Features:
+MACD_Hist      0.081660
+SMA_200        0.072202
+ADX            0.069871
+BB_Position    0.061512
+RSI_Lag1       0.058837
+dtype: float64
+2026-03-03 16:17:17,439 [INFO] 
+ET Top 5 Features:
+Is_NY          0.113471
+Is_London      0.102045
+SMA_200        0.078198
+MACD_Hist      0.067355
+BB_Position    0.054462
+dtype: float64
+2026-03-03 16:17:34,565 [INFO] Walk-forward progress: 950/4801
+2026-03-03 16:17:34,569 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:17:34,575 [INFO] Training gbm...
+2026-03-03 16:17:36,054 [INFO] Training rf...
+2026-03-03 16:17:36,678 [INFO] Training et...
+2026-03-03 16:17:37,279 [INFO] 
+GBM Top 5 Features:
+ADX            0.099900
+MACD_Hist      0.086564
+Return_Lag4    0.075164
+Return_Lag1    0.073821
+BB_Position    0.062585
+dtype: float64
+2026-03-03 16:17:37,435 [INFO] 
+RF Top 5 Features:
+MACD_Hist      0.090792
+ADX            0.083860
+SMA_200        0.064471
+Return_Lag4    0.063881
+BB_Position    0.060254
+dtype: float64
+2026-03-03 16:17:37,570 [INFO] 
+ET Top 5 Features:
+Is_NY              0.086314
+SMA_200            0.083779
+Is_London          0.075017
+MACD_Hist          0.069512
+Trend_Alignment    0.062251
+dtype: float64
+2026-03-03 16:17:52,667 [INFO] Walk-forward progress: 1000/4801
+2026-03-03 16:17:52,671 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:17:52,674 [INFO] Training gbm...
+2026-03-03 16:17:54,177 [INFO] Training rf...
+2026-03-03 16:17:54,770 [INFO] Training et...
+2026-03-03 16:17:55,148 [INFO] 
+GBM Top 5 Features:
+MACD_Hist      0.098719
+ADX            0.084473
+BB_Width       0.073635
+Return_Lag1    0.070798
+RSI_Lag1       0.065986
+dtype: float64
+2026-03-03 16:17:55,285 [INFO] 
+RF Top 5 Features:
+MACD_Hist      0.089864
+ADX            0.077107
+SMA_200        0.070220
+RSI_Lag1       0.060632
+Return_Lag4    0.060166
+dtype: float64
+2026-03-03 16:17:55,447 [INFO] 
+ET Top 5 Features:
+SMA_200            0.094058
+Is_NY              0.078222
+Is_London          0.069676
+MACD_Hist          0.067171
+Trend_Alignment    0.061738
+dtype: float64
+2026-03-03 16:18:10,261 [INFO] Walk-forward progress: 1050/4801
+2026-03-03 16:18:10,267 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:18:10,271 [INFO] Training gbm...
+2026-03-03 16:18:11,925 [INFO] Training rf...
+2026-03-03 16:18:12,968 [INFO] Training et...
+2026-03-03 16:18:13,455 [INFO] 
+GBM Top 5 Features:
+ADX            0.089576
+Return_Lag4    0.083084
+Return_Lag1    0.077982
+BB_Width       0.072541
+MACD_Hist      0.068600
+dtype: float64
+2026-03-03 16:18:13,597 [INFO] 
+RF Top 5 Features:
+ADX            0.079880
+SMA_200        0.070088
+MACD_Hist      0.070025
+Return_Lag4    0.068782
+SMA_50         0.060423
+dtype: float64
+2026-03-03 16:18:13,725 [INFO] 
+ET Top 5 Features:
+SMA_200            0.081814
+Is_NY              0.077633
+Is_London          0.073364
+Trend_Alignment    0.072837
+MACD_Hist          0.065992
+dtype: float64
+2026-03-03 16:18:28,609 [INFO] Walk-forward progress: 1100/4801
+2026-03-03 16:18:28,613 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:18:28,715 [INFO] Training gbm...
+2026-03-03 16:18:30,401 [INFO] Training rf...
+2026-03-03 16:18:31,185 [INFO] Training et...
+2026-03-03 16:18:31,745 [INFO] 
+GBM Top 5 Features:
+Return_Lag1    0.084417
+ADX            0.077085
+MACD_Hist      0.075234
+BB_Width       0.073755
+Return_Lag4    0.067822
+dtype: float64
+2026-03-03 16:18:31,871 [INFO] 
+RF Top 5 Features:
+ADX            0.081666
+MACD_Hist      0.078732
+SMA_200        0.062537
+SMA_50         0.062032
+Return_Lag4    0.060305
+dtype: float64
+2026-03-03 16:18:31,997 [INFO] 
+ET Top 5 Features:
+Is_NY              0.079512
+Is_London          0.078421
+SMA_200            0.070867
+Trend_Alignment    0.061514
+SMA_50             0.059296
+dtype: float64
+2026-03-03 16:18:47,465 [INFO] Walk-forward progress: 1150/4801
+2026-03-03 16:18:47,470 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:18:47,474 [INFO] Training gbm...
+2026-03-03 16:18:49,543 [INFO] Training rf...
+2026-03-03 16:18:50,205 [INFO] Training et...
+2026-03-03 16:18:50,630 [INFO] 
+GBM Top 5 Features:
+ADX             0.075098
+BB_Width        0.069705
+RSI_Momentum    0.068600
+RSI_Lag1        0.066977
+Return_Lag4     0.065507
+dtype: float64
+2026-03-03 16:18:50,743 [INFO] 
+RF Top 5 Features:
+ADX          0.085661
+MACD_Hist    0.074051
+BB_Width     0.066632
+SMA_200      0.058111
+SMA_50       0.057981
+dtype: float64
+2026-03-03 16:18:50,859 [INFO] 
+ET Top 5 Features:
+Is_London    0.087230
+SMA_200      0.073107
+Is_NY        0.071863
+MACD_Hist    0.060746
+SMA_20       0.055487
+dtype: float64
+2026-03-03 16:19:07,286 [INFO] Walk-forward progress: 1200/4801
+2026-03-03 16:19:07,291 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:19:07,294 [INFO] Training gbm...
+2026-03-03 16:19:09,198 [INFO] Training rf...
+2026-03-03 16:19:09,888 [INFO] Training et...
+2026-03-03 16:19:10,362 [INFO] 
+GBM Top 5 Features:
+BB_Width       0.078510
+RSI_Lag1       0.075215
+MACD_Hist      0.074719
+ADX            0.069956
+Return_Lag4    0.069590
+dtype: float64
+2026-03-03 16:19:10,497 [INFO] 
+RF Top 5 Features:
+MACD_Hist       0.087801
+ADX             0.078902
+BB_Width        0.063850
+SMA_50          0.059502
+RSI_Momentum    0.058225
+dtype: float64
+2026-03-03 16:19:10,634 [INFO] 
+ET Top 5 Features:
+Is_NY        0.082676
+SMA_200      0.078006
+Is_London    0.076132
+MACD_Hist    0.063706
+RSI_Lag1     0.062237
+dtype: float64
+2026-03-03 16:19:28,934 [INFO] Walk-forward progress: 1250/4801
+2026-03-03 16:19:28,945 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:19:28,951 [INFO] Training gbm...
+2026-03-03 16:19:30,796 [INFO] Training rf...
+2026-03-03 16:19:32,028 [INFO] Training et...
+2026-03-03 16:19:32,852 [INFO] 
+GBM Top 5 Features:
+RSI_Momentum    0.077039
+ADX             0.076127
+Return_Lag4     0.073343
+MACD_Hist       0.071629
+BB_Width        0.068724
+dtype: float64
+2026-03-03 16:19:33,766 [INFO] 
+RF Top 5 Features:
+MACD_Hist      0.082063
+ADX            0.077481
+BB_Width       0.068778
+SMA_200        0.061737
+Return_Lag4    0.056865
+dtype: float64
+2026-03-03 16:19:34,349 [INFO] 
+ET Top 5 Features:
+Is_NY        0.094005
+SMA_200      0.082933
+Is_London    0.074946
+SMA_50       0.057839
+RSI_Lag1     0.057668
+dtype: float64
+2026-03-03 16:21:34,306 [INFO] Walk-forward progress: 1300/4801
+2026-03-03 16:21:37,351 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:21:37,579 [INFO] Training gbm...
+2026-03-03 16:21:43,167 [INFO] Training rf...
+2026-03-03 16:21:46,267 [INFO] Training et...
+2026-03-03 16:21:47,707 [INFO] 
+GBM Top 5 Features:
+Return_Lag1     0.078511
+MACD_Hist       0.077107
+RSI_Momentum    0.073553
+ADX             0.069705
+BB_Width        0.066792
+dtype: float64
+2026-03-03 16:21:48,346 [INFO] 
+RF Top 5 Features:
+MACD_Hist    0.085113
+ADX          0.074456
+BB_Width     0.070485
+ATR          0.060812
+ATR_Ratio    0.056707
+dtype: float64
+2026-03-03 16:21:50,100 [INFO] 
+ET Top 5 Features:
+Is_NY        0.081604
+Is_London    0.075036
+SMA_200      0.071418
+MACD_Hist    0.064382
+RSI_Lag1     0.061069
+dtype: float64
+2026-03-03 16:23:21,123 [INFO] Walk-forward progress: 1350/4801
+2026-03-03 16:23:21,240 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:23:21,311 [INFO] Training gbm...
+2026-03-03 16:23:26,905 [INFO] Training rf...
+2026-03-03 16:23:29,590 [INFO] Training et...
+2026-03-03 16:23:31,876 [INFO] 
+GBM Top 5 Features:
+ADX            0.080077
+Return_Lag4    0.073084
+RSI_Lag1       0.068358
+BB_Width       0.068188
+SMA_200        0.065108
+dtype: float64
+2026-03-03 16:23:33,736 [INFO] 
+RF Top 5 Features:
+MACD_Hist       0.079243
+ADX             0.078503
+BB_Width        0.067814
+SMA_200         0.061731
+RSI_Momentum    0.057786
+dtype: float64
+2026-03-03 16:23:35,078 [INFO] 
+ET Top 5 Features:
+Is_NY        0.082057
+SMA_200      0.077426
+Is_London    0.071741
+RSI_Lag1     0.060665
+MACD_Hist    0.059801
+dtype: float64
+2026-03-03 16:24:54,559 [INFO] Walk-forward progress: 1400/4801
+2026-03-03 16:24:54,615 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:24:54,636 [INFO] Training gbm...
+2026-03-03 16:24:57,076 [INFO] Training rf...
+2026-03-03 16:24:58,651 [INFO] Training et...
+2026-03-03 16:24:59,755 [INFO] 
+GBM Top 5 Features:
+ADX             0.079282
+Return_Lag4     0.074638
+MACD_Hist       0.074451
+Return_Lag1     0.071267
+RSI_Momentum    0.067543
+dtype: float64
+2026-03-03 16:25:00,488 [INFO] 
+RF Top 5 Features:
+MACD_Hist    0.077903
+ADX          0.076994
+SMA_200      0.063611
+SMA_20       0.062587
+SMA_50       0.060692
+dtype: float64
+2026-03-03 16:25:01,393 [INFO] 
+ET Top 5 Features:
+Is_NY              0.100664
+SMA_200            0.083662
+Is_London          0.080521
+RSI_Lag1           0.059800
+Trend_Alignment    0.058121
+dtype: float64
+2026-03-03 16:26:08,062 [INFO] Walk-forward progress: 1450/4801
+2026-03-03 16:26:08,069 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:26:08,077 [INFO] Training gbm...
+2026-03-03 16:26:10,757 [INFO] Training rf...
+2026-03-03 16:26:13,230 [INFO] Training et...
+2026-03-03 16:26:14,236 [INFO] 
+GBM Top 5 Features:
+MACD_Hist       0.074698
+ADX             0.074207
+SMA_200         0.070294
+Return_Lag4     0.067200
+RSI_Momentum    0.064921
+dtype: float64
+2026-03-03 16:26:15,200 [INFO] 
+RF Top 5 Features:
+ADX          0.079674
+MACD_Hist    0.070651
+SMA_200      0.065953
+SMA_20       0.064499
+SMA_50       0.059267
+dtype: float64
+2026-03-03 16:26:15,672 [INFO] 
+ET Top 5 Features:
+Is_NY        0.104749
+SMA_200      0.088631
+Is_London    0.068019
+SMA_20       0.059205
+RSI_Lag1     0.055950
+dtype: float64
+2026-03-03 16:27:21,923 [INFO] Walk-forward progress: 1500/4801
+2026-03-03 16:27:21,935 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:27:21,942 [INFO] Training gbm...
+2026-03-03 16:27:24,692 [INFO] Training rf...
+2026-03-03 16:27:26,526 [INFO] Training et...
+2026-03-03 16:27:27,349 [INFO] 
+GBM Top 5 Features:
+ADX                 0.083684
+Return_Lag4         0.078359
+BB_Width            0.064647
+SMA_200             0.063633
+Dist_From_High20    0.061631
+dtype: float64
+2026-03-03 16:27:28,007 [INFO] 
+RF Top 5 Features:
+ADX            0.076247
+MACD_Hist      0.075409
+SMA_200        0.066418
+BB_Width       0.062335
+Return_Lag4    0.061634
+dtype: float64
+2026-03-03 16:27:28,645 [INFO] 
+ET Top 5 Features:
+Is_NY        0.119457
+Is_London    0.073674
+SMA_200      0.071756
+SMA_20       0.060429
+RSI          0.059646
+dtype: float64
+2026-03-03 16:28:38,853 [INFO] Walk-forward progress: 1550/4801
+2026-03-03 16:28:38,860 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:28:38,873 [INFO] Training gbm...
+2026-03-03 16:28:41,214 [INFO] Training rf...
+2026-03-03 16:28:43,222 [INFO] Training et...
+2026-03-03 16:28:44,405 [INFO] 
+GBM Top 5 Features:
+SMA_200        0.069868
+Return_Lag4    0.068243
+ADX            0.068112
+MACD_Hist      0.066444
+RSI_Lag1       0.062529
+dtype: float64
+2026-03-03 16:28:45,319 [INFO] 
+RF Top 5 Features:
+ADX                 0.078021
+MACD_Hist           0.069173
+SMA_200             0.068689
+Dist_From_High20    0.060499
+SMA_50              0.060228
+dtype: float64
+2026-03-03 16:28:45,845 [INFO] 
+ET Top 5 Features:
+Is_NY        0.116354
+Is_London    0.071715
+SMA_200      0.069059
+SMA_50       0.060678
+MACD_Hist    0.058615
+dtype: float64
+2026-03-03 16:29:43,279 [INFO] Walk-forward progress: 1600/4801
+2026-03-03 16:29:43,287 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:29:43,293 [INFO] Training gbm...
+2026-03-03 16:29:45,754 [INFO] Training rf...
+2026-03-03 16:29:46,959 [INFO] Training et...
+2026-03-03 16:29:47,599 [INFO] 
+GBM Top 5 Features:
+BB_Width            0.080086
+MACD_Hist           0.079050
+ADX                 0.079028
+Return_Lag4         0.065238
+Dist_From_High20    0.061995
+dtype: float64
+2026-03-03 16:29:48,042 [INFO] 
+RF Top 5 Features:
+ADX            0.079172
+MACD_Hist      0.075673
+SMA_200        0.069395
+Return_Lag4    0.062450
+SMA_50         0.060838
+dtype: float64
+2026-03-03 16:29:48,573 [INFO] 
+ET Top 5 Features:
+Is_NY        0.104405
+SMA_200      0.071776
+Is_London    0.068205
+SMA_50       0.059230
+RSI          0.056424
+dtype: float64
+2026-03-03 16:30:35,287 [INFO] Walk-forward progress: 1650/4801
+2026-03-03 16:30:35,297 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:30:35,303 [INFO] Training gbm...
+2026-03-03 16:30:38,155 [INFO] Training rf...
+2026-03-03 16:30:39,230 [INFO] Training et...
+2026-03-03 16:30:40,157 [INFO] 
+GBM Top 5 Features:
+ADX                 0.072067
+Dist_From_SMA200    0.069602
+BB_Width            0.069472
+Return_Lag4         0.068804
+RSI_Lag1            0.062760
+dtype: float64
+2026-03-03 16:30:40,680 [INFO] 
+RF Top 5 Features:
+MACD_Hist      0.075240
+ADX            0.074826
+SMA_200        0.071490
+BB_Width       0.064171
+Return_Lag4    0.060999
+dtype: float64
+2026-03-03 16:30:41,082 [INFO] 
+ET Top 5 Features:
+Is_NY        0.098443
+Is_London    0.070879
+SMA_200      0.068518
+MACD_Hist    0.059578
+SMA_20       0.058197
+dtype: float64
+2026-03-03 16:31:30,067 [INFO] Walk-forward progress: 1700/4801
+2026-03-03 16:31:30,081 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:31:30,089 [INFO] Training gbm...
+2026-03-03 16:31:33,098 [INFO] Training rf...
+2026-03-03 16:31:34,570 [INFO] Training et...
+2026-03-03 16:31:35,389 [INFO] 
+GBM Top 5 Features:
+MACD_Hist           0.075292
+Dist_From_High20    0.075134
+RSI_Lag1            0.069033
+ADX                 0.067954
+BB_Width            0.062584
+dtype: float64
+2026-03-03 16:31:36,001 [INFO] 
+RF Top 5 Features:
+ADX                 0.075445
+MACD_Hist           0.072599
+Dist_From_High20    0.070675
+SMA_200             0.066849
+BB_Width            0.061578
+dtype: float64
+2026-03-03 16:31:36,389 [INFO] 
+ET Top 5 Features:
+Is_NY               0.110571
+SMA_200             0.077609
+Is_London           0.064180
+MACD_Hist           0.064146
+Dist_From_High20    0.058486
+dtype: float64
+2026-03-03 16:32:28,405 [INFO] Walk-forward progress: 1750/4801
+2026-03-03 16:32:28,414 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:32:28,418 [INFO] Training gbm...
+2026-03-03 16:32:31,428 [INFO] Training rf...
+2026-03-03 16:32:32,948 [INFO] Training et...
+2026-03-03 16:32:33,807 [INFO] 
+GBM Top 5 Features:
+ADX                 0.072309
+RSI_Momentum        0.070454
+Dist_From_High20    0.064978
+Return_Lag1         0.064568
+RSI_Lag1            0.064165
+dtype: float64
+2026-03-03 16:32:35,190 [INFO] 
+RF Top 5 Features:
+ADX                 0.078254
+MACD_Hist           0.072908
+Dist_From_High20    0.068663
+SMA_200             0.063813
+BB_Width            0.063464
+dtype: float64
+2026-03-03 16:32:35,805 [INFO] 
+ET Top 5 Features:
+Is_NY        0.102068
+SMA_200      0.078757
+Is_London    0.077465
+MACD_Hist    0.064432
+SMA_50       0.058320
+dtype: float64
+2026-03-03 16:33:33,066 [INFO] Walk-forward progress: 1800/4801
+2026-03-03 16:33:33,076 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:33:33,080 [INFO] Training gbm...
+2026-03-03 16:33:36,126 [INFO] Training rf...
+2026-03-03 16:33:37,396 [INFO] Training et...
+2026-03-03 16:33:38,396 [INFO] 
+GBM Top 5 Features:
+Dist_From_High20    0.082753
+ADX                 0.070776
+RSI_Lag1            0.068124
+RSI_Momentum        0.067782
+Return_Lag4         0.065632
+dtype: float64
+2026-03-03 16:33:38,853 [INFO] 
+RF Top 5 Features:
+ADX          0.079258
+SMA_200      0.062629
+MACD_Hist    0.060971
+SMA_50       0.059641
+BB_Width     0.059491
+dtype: float64
+2026-03-03 16:33:39,701 [INFO] 
+ET Top 5 Features:
+Is_NY              0.110621
+SMA_200            0.087056
+Is_London          0.075184
+SMA_50             0.060967
+Trend_Alignment    0.058848
+dtype: float64
+2026-03-03 16:34:35,098 [INFO] Walk-forward progress: 1850/4801
+2026-03-03 16:34:35,113 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:34:35,116 [INFO] Training gbm...
+2026-03-03 16:34:38,349 [INFO] Training rf...
+2026-03-03 16:34:39,747 [INFO] Training et...
+2026-03-03 16:34:40,565 [INFO] 
+GBM Top 5 Features:
+MACD_Hist           0.075399
+Dist_From_High20    0.070798
+ADX                 0.069268
+RSI_Lag1            0.064592
+BB_Position         0.059930
+dtype: float64
+2026-03-03 16:34:41,026 [INFO] 
+RF Top 5 Features:
+ADX            0.070947
+MACD_Hist      0.063234
+SMA_50         0.062678
+ATR            0.062432
+BB_Position    0.061081
+dtype: float64
+2026-03-03 16:34:41,493 [INFO] 
+ET Top 5 Features:
+Is_NY              0.115213
+SMA_200            0.089733
+Is_London          0.066275
+SMA_50             0.056711
+Trend_Alignment    0.053920
+dtype: float64
+2026-03-03 16:35:35,221 [INFO] Walk-forward progress: 1900/4801
+2026-03-03 16:35:35,227 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:35:35,230 [INFO] Training gbm...
+2026-03-03 16:35:38,528 [INFO] Training rf...
+2026-03-03 16:35:40,064 [INFO] Training et...
+2026-03-03 16:35:40,822 [INFO] 
+GBM Top 5 Features:
+ADX                 0.077398
+BB_Position         0.069079
+RSI_Lag1            0.065251
+BB_Width            0.063548
+Dist_From_High20    0.062532
+dtype: float64
+2026-03-03 16:35:41,296 [INFO] 
+RF Top 5 Features:
+ADX          0.075876
+MACD_Hist    0.067566
+SMA_200      0.065400
+SMA_20       0.061951
+SMA_50       0.059693
+dtype: float64
+2026-03-03 16:35:41,984 [INFO] 
+ET Top 5 Features:
+Is_NY        0.098374
+SMA_200      0.085672
+Is_London    0.070756
+ADX          0.059775
+SMA_50       0.056441
+dtype: float64
+2026-03-03 16:37:16,057 [INFO] Walk-forward progress: 1950/4801
+2026-03-03 16:37:16,080 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:37:16,093 [INFO] Training gbm...
+2026-03-03 16:37:20,009 [INFO] Training rf...
+2026-03-03 16:37:21,976 [INFO] Training et...
+2026-03-03 16:37:23,034 [INFO] 
+GBM Top 5 Features:
+ADX                 0.074663
+Return_Lag4         0.074116
+Return_Lag1         0.066695
+RSI_Lag1            0.065996
+Dist_From_SMA200    0.060600
+dtype: float64
+2026-03-03 16:37:23,701 [INFO] 
+RF Top 5 Features:
+ADX            0.080344
+SMA_200        0.066572
+MACD_Hist      0.066329
+BB_Width       0.061192
+BB_Position    0.061185
+dtype: float64
+2026-03-03 16:37:24,716 [INFO] 
+ET Top 5 Features:
+Is_NY        0.093966
+SMA_200      0.082987
+Is_London    0.077350
+SMA_20       0.058028
+SMA_50       0.053999
+dtype: float64
+2026-03-03 16:38:51,928 [INFO] Walk-forward progress: 2000/4801
+2026-03-03 16:38:53,521 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:38:53,525 [INFO] Training gbm...
+2026-03-03 16:38:57,364 [INFO] Training rf...
+2026-03-03 16:38:59,436 [INFO] Training et...
+2026-03-03 16:39:01,486 [INFO] 
+GBM Top 5 Features:
+ADX                 0.080439
+RSI_Momentum        0.065049
+Return_Lag4         0.064975
+Dist_From_High20    0.062505
+RSI_Lag1            0.061794
+dtype: float64
+2026-03-03 16:39:02,520 [INFO] 
+RF Top 5 Features:
+ADX            0.080719
+MACD_Hist      0.068903
+SMA_200        0.063664
+BB_Position    0.060182
+BB_Width       0.056765
+dtype: float64
+2026-03-03 16:39:03,518 [INFO] 
+ET Top 5 Features:
+Is_NY        0.094286
+SMA_200      0.087138
+Is_London    0.069315
+SMA_20       0.058053
+SMA_50       0.054282
+dtype: float64
+2026-03-03 16:40:17,026 [INFO] Walk-forward progress: 2050/4801
+2026-03-03 16:40:17,033 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:40:17,045 [INFO] Training gbm...
+2026-03-03 16:40:20,808 [INFO] Training rf...
+2026-03-03 16:40:22,980 [INFO] Training et...
+2026-03-03 16:40:24,393 [INFO] 
+GBM Top 5 Features:
+ADX                 0.070488
+MACD_Hist           0.069285
+Dist_From_High20    0.068932
+BB_Width            0.066397
+RSI_Lag1            0.065156
+dtype: float64
+2026-03-03 16:40:25,051 [INFO] 
+RF Top 5 Features:
+ADX          0.070082
+MACD_Hist    0.066366
+SMA_200      0.065529
+ATR_Ratio    0.063611
+SMA_50       0.061801
+dtype: float64
+2026-03-03 16:40:25,935 [INFO] 
+ET Top 5 Features:
+Is_NY        0.094720
+SMA_200      0.083994
+Is_London    0.075057
+SMA_20       0.060129
+MACD_Hist    0.053476
+dtype: float64
+2026-03-03 16:41:42,275 [INFO] Walk-forward progress: 2100/4801
+2026-03-03 16:41:42,291 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:41:42,294 [INFO] Training gbm...
+2026-03-03 16:41:46,327 [INFO] Training rf...
+2026-03-03 16:41:48,145 [INFO] Training et...
+2026-03-03 16:41:49,533 [INFO] 
+GBM Top 5 Features:
+Dist_From_High20    0.080017
+ADX                 0.074233
+Return_Lag4         0.066886
+BB_Width            0.064337
+MACD_Hist           0.061095
+dtype: float64
+2026-03-03 16:41:50,148 [INFO] 
+RF Top 5 Features:
+ADX                 0.070132
+MACD_Hist           0.067999
+Dist_From_High20    0.065502
+SMA_200             0.065075
+BB_Position         0.060376
+dtype: float64
+2026-03-03 16:41:50,980 [INFO] 
+ET Top 5 Features:
+Is_NY        0.098706
+SMA_200      0.074402
+Is_London    0.073470
+SMA_50       0.056046
+SMA_20       0.054258
+dtype: float64
+2026-03-03 16:43:18,028 [INFO] Walk-forward progress: 2150/4801
+2026-03-03 16:43:18,050 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 16:43:18,060 [INFO] Training gbm...
+2026-03-03 16:43:22,481 [INFO] Training rf...
+2026-03-03 16:43:24,559 [INFO] Training et...
+2026-03-03 16:43:25,607 [INFO] 
+GBM Top 5 Features:
+ADX                 0.075573
+Return_Lag1         0.072101
+Return_Lag4         0.069528
+SMA_20              0.068906
+Dist_From_High20    0.064196
+dtype: float64
+2026-03-03 16:43:26,531 [INFO] 
+RF Top 5 Features:
+MACD_Hist           0.075717
+ADX                 0.066429
+Dist_From_High20    0.065879
+SMA_200             0.065656
+Dist_From_Low20     0.060018
+dtype: float64
+2026-03-03 16:43:27,186 [INFO] 
+ET Top 5 Features:
+Is_NY        0.088766
+SMA_200      0.080357
+Is_London    0.078367
+SMA_20       0.056196
+BB_Width     0.053283
+dtype: float64
+2026-03-03 17:14:21,353 [INFO] Connected to Exness account 298625031
+2026-03-03 17:14:24,462 [INFO] ============================================================
+2026-03-03 17:14:24,462 [INFO] STARTING WALK-FORWARD VALIDATION (Mock Exam)
+2026-03-03 17:14:24,469 [INFO] ============================================================
+2026-03-03 17:14:25,294 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:14:25,370 [INFO] Training gbm...
+2026-03-03 17:14:28,602 [INFO] Training rf...
+2026-03-03 17:14:37,231 [INFO] Training et...
+2026-03-03 17:14:37,923 [INFO] 
+GBM Top 5 Features:
+MACD_Hist      0.098719
+ADX            0.084473
+BB_Width       0.073635
+Return_Lag1    0.070798
+RSI_Lag1       0.065986
+dtype: float64
+2026-03-03 17:14:38,162 [INFO] 
+RF Top 5 Features:
+MACD_Hist      0.089864
+ADX            0.077107
+SMA_200        0.070220
+RSI_Lag1       0.060632
+Return_Lag4    0.060166
+dtype: float64
+2026-03-03 17:14:38,356 [INFO] 
+ET Top 5 Features:
+SMA_200            0.094058
+Is_NY              0.078222
+Is_London          0.069676
+MACD_Hist          0.067171
+Trend_Alignment    0.061738
+dtype: float64
+2026-03-03 17:15:11,644 [INFO] Walk-forward progress: 1200/4801
+2026-03-03 17:15:11,663 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:15:11,667 [INFO] Training gbm...
+2026-03-03 17:15:15,870 [INFO] Training rf...
+2026-03-03 17:15:17,241 [INFO] Training et...
+2026-03-03 17:15:18,388 [INFO] 
+GBM Top 5 Features:
+BB_Width       0.078510
+RSI_Lag1       0.075215
+MACD_Hist      0.074719
+ADX            0.069956
+Return_Lag4    0.069590
+dtype: float64
+2026-03-03 17:15:18,712 [INFO] 
+RF Top 5 Features:
+MACD_Hist       0.087801
+ADX             0.078902
+BB_Width        0.063850
+SMA_50          0.059502
+RSI_Momentum    0.058225
+dtype: float64
+2026-03-03 17:15:18,985 [INFO] 
+ET Top 5 Features:
+Is_NY        0.082676
+SMA_200      0.078006
+Is_London    0.076132
+MACD_Hist    0.063706
+RSI_Lag1     0.062237
+dtype: float64
+2026-03-03 17:16:03,471 [INFO] Walk-forward progress: 1400/4801
+2026-03-03 17:16:04,959 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:16:05,828 [INFO] Training gbm...
+2026-03-03 17:16:14,908 [INFO] Training rf...
+2026-03-03 17:16:16,758 [INFO] Training et...
+2026-03-03 17:16:18,085 [INFO] 
+GBM Top 5 Features:
+ADX             0.079282
+Return_Lag4     0.074638
+MACD_Hist       0.074451
+Return_Lag1     0.071267
+RSI_Momentum    0.067543
+dtype: float64
+2026-03-03 17:16:18,447 [INFO] 
+RF Top 5 Features:
+MACD_Hist    0.077903
+ADX          0.076994
+SMA_200      0.063611
+SMA_20       0.062587
+SMA_50       0.060692
+dtype: float64
+2026-03-03 17:16:18,633 [INFO] 
+ET Top 5 Features:
+Is_NY              0.100664
+SMA_200            0.083662
+Is_London          0.080521
+RSI_Lag1           0.059800
+Trend_Alignment    0.058121
+dtype: float64
+2026-03-03 17:18:31,515 [INFO] Walk-forward progress: 1600/4801
+2026-03-03 17:18:31,724 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:18:31,812 [INFO] Training gbm...
+2026-03-03 17:18:35,364 [INFO] Training rf...
+2026-03-03 17:18:36,457 [INFO] Training et...
+2026-03-03 17:18:37,061 [INFO] 
+GBM Top 5 Features:
+BB_Width            0.080086
+MACD_Hist           0.079050
+ADX                 0.079028
+Return_Lag4         0.065238
+Dist_From_High20    0.061995
+dtype: float64
+2026-03-03 17:18:37,237 [INFO] 
+RF Top 5 Features:
+ADX            0.079172
+MACD_Hist      0.075673
+SMA_200        0.069395
+Return_Lag4    0.062450
+SMA_50         0.060838
+dtype: float64
+2026-03-03 17:18:37,444 [INFO] 
+ET Top 5 Features:
+Is_NY        0.104405
+SMA_200      0.071776
+Is_London    0.068205
+SMA_50       0.059230
+RSI          0.056424
+dtype: float64
+2026-03-03 17:19:13,012 [INFO] Walk-forward progress: 1800/4801
+2026-03-03 17:19:13,030 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:19:13,039 [INFO] Training gbm...
+2026-03-03 17:19:17,191 [INFO] Training rf...
+2026-03-03 17:19:18,039 [INFO] Training et...
+2026-03-03 17:19:18,552 [INFO] 
+GBM Top 5 Features:
+Dist_From_High20    0.082753
+ADX                 0.070776
+RSI_Lag1            0.068124
+RSI_Momentum        0.067782
+Return_Lag4         0.065632
+dtype: float64
+2026-03-03 17:19:18,709 [INFO] 
+RF Top 5 Features:
+ADX          0.079258
+SMA_200      0.062629
+MACD_Hist    0.060971
+SMA_50       0.059641
+BB_Width     0.059491
+dtype: float64
+2026-03-03 17:19:18,856 [INFO] 
+ET Top 5 Features:
+Is_NY              0.110621
+SMA_200            0.087056
+Is_London          0.075184
+SMA_50             0.060967
+Trend_Alignment    0.058848
+dtype: float64
+2026-03-03 17:19:57,400 [INFO] Walk-forward progress: 2000/4801
+2026-03-03 17:19:59,830 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:20:00,816 [INFO] Training gbm...
+2026-03-03 17:20:09,773 [INFO] Training rf...
+2026-03-03 17:20:15,932 [INFO] Training et...
+2026-03-03 17:20:17,262 [INFO] 
+GBM Top 5 Features:
+ADX                 0.080439
+RSI_Momentum        0.065049
+Return_Lag4         0.064975
+Dist_From_High20    0.062505
+RSI_Lag1            0.061794
+dtype: float64
+2026-03-03 17:20:17,570 [INFO] 
+RF Top 5 Features:
+ADX            0.080719
+MACD_Hist      0.068903
+SMA_200        0.063664
+BB_Position    0.060182
+BB_Width       0.056765
+dtype: float64
+2026-03-03 17:20:17,798 [INFO] 
+ET Top 5 Features:
+Is_NY        0.094286
+SMA_200      0.087138
+Is_London    0.069315
+SMA_20       0.058053
+SMA_50       0.054282
+dtype: float64
+2026-03-03 17:21:03,518 [INFO] Walk-forward progress: 2200/4801
+2026-03-03 17:21:04,945 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:21:05,837 [INFO] Training gbm...
+2026-03-03 17:21:13,246 [INFO] Training rf...
+2026-03-03 17:21:14,795 [INFO] Training et...
+2026-03-03 17:21:16,030 [INFO] 
+GBM Top 5 Features:
+ADX                 0.077587
+BB_Width            0.073145
+Dist_From_High20    0.071730
+BB_Position         0.065896
+Return_Lag1         0.063357
+dtype: float64
+2026-03-03 17:21:16,306 [INFO] 
+RF Top 5 Features:
+MACD_Hist           0.079601
+BB_Width            0.069677
+Dist_From_High20    0.064171
+ADX                 0.060647
+ATR_Ratio           0.059482
+dtype: float64
+2026-03-03 17:21:16,492 [INFO] 
+ET Top 5 Features:
+Is_NY               0.089544
+SMA_200             0.081081
+Is_London           0.073165
+SMA_50              0.059426
+Dist_From_High20    0.053006
+dtype: float64
+2026-03-03 17:21:53,335 [INFO] Walk-forward progress: 2400/4801
+2026-03-03 17:21:53,955 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:21:54,727 [INFO] Training gbm...
+2026-03-03 17:21:58,758 [INFO] Training rf...
+2026-03-03 17:21:59,748 [INFO] Training et...
+2026-03-03 17:22:00,390 [INFO] 
+GBM Top 5 Features:
+ADX                 0.075566
+BB_Width            0.072242
+SMA_20              0.070485
+Dist_From_SMA200    0.063147
+Return_Lag1         0.062516
+dtype: float64
+2026-03-03 17:22:00,639 [INFO] 
+RF Top 5 Features:
+MACD_Hist    0.075206
+SMA_200      0.069909
+SMA_50       0.068066
+BB_Width     0.067950
+ADX          0.065302
+dtype: float64
+2026-03-03 17:22:00,841 [INFO] 
+ET Top 5 Features:
+Is_NY        0.086278
+Is_London    0.079484
+SMA_200      0.078540
+SMA_50       0.067655
+SMA_20       0.061769
+dtype: float64
+2026-03-03 17:22:38,210 [INFO] Walk-forward progress: 2600/4801
+2026-03-03 17:22:39,083 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:22:39,878 [INFO] Training gbm...
+2026-03-03 17:22:45,635 [INFO] Training rf...
+2026-03-03 17:22:47,560 [INFO] Training et...
+2026-03-03 17:22:48,426 [INFO] 
+GBM Top 5 Features:
+ADX                 0.082631
+Return_Lag1         0.077129
+Dist_From_High20    0.067710
+Return_Lag4         0.063935
+SMA_20              0.062293
+dtype: float64
+2026-03-03 17:22:48,622 [INFO] 
+RF Top 5 Features:
+ADX                 0.070277
+MACD_Hist           0.066845
+BB_Width            0.065351
+Dist_From_High20    0.064319
+SMA_200             0.063155
+dtype: float64
+2026-03-03 17:22:48,780 [INFO] 
+ET Top 5 Features:
+Is_NY        0.112773
+SMA_200      0.082760
+Is_London    0.062377
+SMA_50       0.058687
+SMA_20       0.055201
+dtype: float64
+2026-03-03 17:23:26,603 [INFO] Walk-forward progress: 2800/4801
+2026-03-03 17:23:26,766 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:23:26,861 [INFO] Training gbm...
+2026-03-03 17:23:34,346 [INFO] Training rf...
+2026-03-03 17:23:36,049 [INFO] Training et...
+2026-03-03 17:23:37,038 [INFO] 
+GBM Top 5 Features:
+Return_Lag1         0.084263
+ADX                 0.074213
+Dist_From_High20    0.066311
+MACD_Hist           0.065085
+SMA_20              0.060575
+dtype: float64
+2026-03-03 17:23:37,281 [INFO] 
+RF Top 5 Features:
+MACD_Hist           0.071254
+BB_Width            0.066094
+Dist_From_High20    0.061622
+SMA_200             0.060084
+ADX                 0.058526
+dtype: float64
+2026-03-03 17:23:37,587 [INFO] 
+ET Top 5 Features:
+Is_NY        0.120079
+Is_London    0.069903
+SMA_200      0.068028
+MACD_Hist    0.059195
+SMA_20       0.056432
+dtype: float64
+2026-03-03 17:24:27,725 [INFO] Walk-forward progress: 3000/4801
+2026-03-03 17:24:30,750 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:24:31,685 [INFO] Training gbm...
+2026-03-03 17:24:41,826 [INFO] Training rf...
+2026-03-03 17:24:44,430 [INFO] Training et...
+2026-03-03 17:24:45,933 [INFO] 
+GBM Top 5 Features:
+BB_Width            0.071898
+Return_Lag1         0.071388
+MACD_Hist           0.070059
+RSI_Momentum        0.069986
+Dist_From_High20    0.068343
+dtype: float64
+2026-03-03 17:24:46,170 [INFO] 
+RF Top 5 Features:
+MACD_Hist           0.072763
+SMA_20              0.068083
+SMA_200             0.059533
+Dist_From_SMA200    0.059319
+RSI_Lag1            0.058649
+dtype: float64
+2026-03-03 17:24:46,357 [INFO] 
+ET Top 5 Features:
+Is_NY        0.119423
+Is_London    0.068182
+MACD_Hist    0.064365
+SMA_200      0.057001
+ATR          0.052246
+dtype: float64
+2026-03-03 17:25:34,063 [INFO] Walk-forward progress: 3200/4801
+2026-03-03 17:25:36,573 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:25:37,245 [INFO] Training gbm...
+2026-03-03 17:25:55,681 [INFO] Training rf...
+2026-03-03 17:25:58,096 [INFO] Training et...
+2026-03-03 17:26:00,482 [INFO] 
+GBM Top 5 Features:
+Return_Lag1         0.081124
+MACD_Hist           0.067376
+ADX                 0.067002
+RSI_Momentum        0.066822
+Dist_From_SMA200    0.065476
+dtype: float64
+2026-03-03 17:26:02,205 [INFO] 
+RF Top 5 Features:
+MACD_Hist          0.078559
+BB_Width           0.069771
+RSI                0.064672
+ATR_Ratio          0.063147
+Dist_From_Low20    0.057948
+dtype: float64
+2026-03-03 17:26:03,250 [INFO] 
+ET Top 5 Features:
+Is_NY               0.094135
+MACD_Hist           0.068848
+Is_London           0.061185
+SMA_200             0.060219
+Dist_From_High20    0.059815
+dtype: float64
+2026-03-03 17:26:52,704 [INFO] Walk-forward progress: 3400/4801
+2026-03-03 17:26:53,834 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:26:54,676 [INFO] Training gbm...
+2026-03-03 17:27:06,471 [INFO] Training rf...
+2026-03-03 17:27:07,977 [INFO] Training et...
+2026-03-03 17:27:09,238 [INFO] 
+GBM Top 5 Features:
+Dist_From_Low20     0.081555
+Return_Lag1         0.071477
+RSI_Momentum        0.064615
+Dist_From_SMA200    0.064254
+BB_Width            0.064201
+dtype: float64
+2026-03-03 17:27:09,449 [INFO] 
+RF Top 5 Features:
+MACD_Hist          0.072089
+BB_Width           0.062607
+Dist_From_Low20    0.062213
+RSI                0.061050
+ATR                0.058472
+dtype: float64
+2026-03-03 17:27:09,590 [INFO] 
+ET Top 5 Features:
+Is_NY               0.098426
+Is_London           0.068763
+SMA_200             0.062492
+MACD_Hist           0.058701
+Dist_From_High20    0.054600
+dtype: float64
+2026-03-03 17:27:40,151 [INFO] Walk-forward progress: 3600/4801
+2026-03-03 17:27:40,596 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:27:41,124 [INFO] Training gbm...
+2026-03-03 17:27:48,303 [INFO] Training rf...
+2026-03-03 17:27:51,138 [INFO] Training et...
+2026-03-03 17:27:52,792 [INFO] 
+GBM Top 5 Features:
+Return_Lag1         0.073325
+ADX                 0.071178
+Dist_From_Low20     0.068613
+Dist_From_High20    0.063224
+BB_Width            0.062920
+dtype: float64
+2026-03-03 17:27:53,009 [INFO] 
+RF Top 5 Features:
+MACD_Hist           0.079196
+ADX                 0.067919
+BB_Width            0.065894
+ATR_Ratio           0.062126
+Dist_From_High20    0.059334
+dtype: float64
+2026-03-03 17:27:53,182 [INFO] 
+ET Top 5 Features:
+Is_NY        0.102523
+SMA_200      0.068424
+Is_London    0.066558
+ADX          0.060365
+RSI          0.058527
+dtype: float64
+2026-03-03 17:28:46,537 [INFO] Walk-forward progress: 3800/4801
+2026-03-03 17:28:48,042 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:28:49,122 [INFO] Training gbm...
+2026-03-03 17:28:59,081 [INFO] Training rf...
+2026-03-03 17:29:01,099 [INFO] Training et...
+2026-03-03 17:29:02,432 [INFO] 
+GBM Top 5 Features:
+ADX                 0.081478
+Dist_From_Low20     0.070397
+Return_Lag1         0.065970
+Dist_From_SMA200    0.064917
+RSI_Momentum        0.064737
+dtype: float64
+2026-03-03 17:29:02,635 [INFO] 
+RF Top 5 Features:
+MACD_Hist           0.078276
+ADX                 0.067112
+Return_Lag4         0.063402
+ATR                 0.062209
+Dist_From_High20    0.062190
+dtype: float64
+2026-03-03 17:29:02,859 [INFO] 
+ET Top 5 Features:
+Is_NY               0.103229
+Is_London           0.072422
+Dist_From_High20    0.063042
+MACD_Hist           0.060686
+ADX                 0.059722
+dtype: float64
+2026-03-03 17:35:50,966 [INFO] Connected to Exness account 298625031
+2026-03-03 17:35:53,974 [INFO] ============================================================
+2026-03-03 17:35:53,992 [INFO] STARTING WALK-FORWARD VALIDATION (Mock Exam)
+2026-03-03 17:35:53,992 [INFO] ============================================================
+2026-03-03 17:35:54,199 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:35:54,243 [INFO] Training gbm...
+2026-03-03 17:35:56,712 [INFO] Training rf...
+2026-03-03 17:35:57,548 [INFO] Training et...
+2026-03-03 17:35:57,971 [INFO] 
+GBM Top 5 Features:
+MACD_Hist      0.098719
+ADX            0.084473
+BB_Width       0.073635
+Return_Lag1    0.070798
+RSI_Lag1       0.065986
+dtype: float64
+2026-03-03 17:35:58,143 [INFO] 
+RF Top 5 Features:
+MACD_Hist      0.089864
+ADX            0.077107
+SMA_200        0.070220
+RSI_Lag1       0.060632
+Return_Lag4    0.060166
+dtype: float64
+2026-03-03 17:35:58,309 [INFO] 
+ET Top 5 Features:
+SMA_200            0.094058
+Is_NY              0.078222
+Is_London          0.069676
+MACD_Hist          0.067171
+Trend_Alignment    0.061738
+dtype: float64
+2026-03-03 17:36:28,980 [INFO] Walk-forward progress: 1200/4801
+2026-03-03 17:36:28,987 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:36:28,991 [INFO] Training gbm...
+2026-03-03 17:36:31,098 [INFO] Training rf...
+2026-03-03 17:36:31,871 [INFO] Training et...
+2026-03-03 17:36:32,307 [INFO] 
+GBM Top 5 Features:
+BB_Width       0.078510
+RSI_Lag1       0.075215
+MACD_Hist      0.074719
+ADX            0.069956
+Return_Lag4    0.069590
+dtype: float64
+2026-03-03 17:36:32,462 [INFO] 
+RF Top 5 Features:
+MACD_Hist       0.087801
+ADX             0.078902
+BB_Width        0.063850
+SMA_50          0.059502
+RSI_Momentum    0.058225
+dtype: float64
+2026-03-03 17:36:32,646 [INFO] 
+ET Top 5 Features:
+Is_NY        0.082676
+SMA_200      0.078006
+Is_London    0.076132
+MACD_Hist    0.063706
+RSI_Lag1     0.062237
+dtype: float64
+2026-03-03 17:37:03,531 [INFO] Walk-forward progress: 1400/4801
+2026-03-03 17:37:03,535 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:37:03,537 [INFO] Training gbm...
+2026-03-03 17:37:05,642 [INFO] Training rf...
+2026-03-03 17:37:06,268 [INFO] Training et...
+2026-03-03 17:37:06,676 [INFO] 
+GBM Top 5 Features:
+ADX             0.079282
+Return_Lag4     0.074638
+MACD_Hist       0.074451
+Return_Lag1     0.071267
+RSI_Momentum    0.067543
+dtype: float64
+2026-03-03 17:37:06,979 [INFO] 
+RF Top 5 Features:
+MACD_Hist    0.077903
+ADX          0.076994
+SMA_200      0.063611
+SMA_20       0.062587
+SMA_50       0.060692
+dtype: float64
+2026-03-03 17:37:07,123 [INFO] 
+ET Top 5 Features:
+Is_NY              0.100664
+SMA_200            0.083662
+Is_London          0.080521
+RSI_Lag1           0.059800
+Trend_Alignment    0.058121
+dtype: float64
+2026-03-03 17:37:35,897 [INFO] Walk-forward progress: 1600/4801
+2026-03-03 17:37:35,901 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:37:35,903 [INFO] Training gbm...
+2026-03-03 17:37:40,015 [INFO] Training rf...
+2026-03-03 17:37:40,803 [INFO] Training et...
+2026-03-03 17:37:41,707 [INFO] 
+GBM Top 5 Features:
+BB_Width            0.080086
+MACD_Hist           0.079050
+ADX                 0.079028
+Return_Lag4         0.065238
+Dist_From_High20    0.061995
+dtype: float64
+2026-03-03 17:37:41,981 [INFO] 
+RF Top 5 Features:
+ADX            0.079172
+MACD_Hist      0.075673
+SMA_200        0.069395
+Return_Lag4    0.062450
+SMA_50         0.060838
+dtype: float64
+2026-03-03 17:37:42,233 [INFO] 
+ET Top 5 Features:
+Is_NY        0.104405
+SMA_200      0.071776
+Is_London    0.068205
+SMA_50       0.059230
+RSI          0.056424
+dtype: float64
+2026-03-03 17:38:19,975 [INFO] Walk-forward progress: 1800/4801
+2026-03-03 17:38:19,985 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:38:19,988 [INFO] Training gbm...
+2026-03-03 17:38:24,779 [INFO] Training rf...
+2026-03-03 17:38:25,659 [INFO] Training et...
+2026-03-03 17:38:26,151 [INFO] 
+GBM Top 5 Features:
+Dist_From_High20    0.082753
+ADX                 0.070776
+RSI_Lag1            0.068124
+RSI_Momentum        0.067782
+Return_Lag4         0.065632
+dtype: float64
+2026-03-03 17:38:26,320 [INFO] 
+RF Top 5 Features:
+ADX          0.079258
+SMA_200      0.062629
+MACD_Hist    0.060971
+SMA_50       0.059641
+BB_Width     0.059491
+dtype: float64
+2026-03-03 17:38:26,482 [INFO] 
+ET Top 5 Features:
+Is_NY              0.110621
+SMA_200            0.087056
+Is_London          0.075184
+SMA_50             0.060967
+Trend_Alignment    0.058848
+dtype: float64
+2026-03-03 17:38:56,574 [INFO] Walk-forward progress: 2000/4801
+2026-03-03 17:38:56,578 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:38:56,590 [INFO] Training gbm...
+2026-03-03 17:38:59,472 [INFO] Training rf...
+2026-03-03 17:39:00,337 [INFO] Training et...
+2026-03-03 17:39:00,834 [INFO] 
+GBM Top 5 Features:
+ADX                 0.080439
+RSI_Momentum        0.065049
+Return_Lag4         0.064975
+Dist_From_High20    0.062505
+RSI_Lag1            0.061794
+dtype: float64
+2026-03-03 17:39:00,991 [INFO] 
+RF Top 5 Features:
+ADX            0.080719
+MACD_Hist      0.068903
+SMA_200        0.063664
+BB_Position    0.060182
+BB_Width       0.056765
+dtype: float64
+2026-03-03 17:39:01,249 [INFO] 
+ET Top 5 Features:
+Is_NY        0.094286
+SMA_200      0.087138
+Is_London    0.069315
+SMA_20       0.058053
+SMA_50       0.054282
+dtype: float64
+2026-03-03 17:39:27,275 [INFO] Walk-forward progress: 2200/4801
+2026-03-03 17:39:27,279 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:39:27,284 [INFO] Training gbm...
+2026-03-03 17:39:30,439 [INFO] Training rf...
+2026-03-03 17:39:31,434 [INFO] Training et...
+2026-03-03 17:39:31,917 [INFO] 
+GBM Top 5 Features:
+ADX                 0.077587
+BB_Width            0.073145
+Dist_From_High20    0.071730
+BB_Position         0.065896
+Return_Lag1         0.063357
+dtype: float64
+2026-03-03 17:39:32,060 [INFO] 
+RF Top 5 Features:
+MACD_Hist           0.079601
+BB_Width            0.069677
+Dist_From_High20    0.064171
+ADX                 0.060647
+ATR_Ratio           0.059482
+dtype: float64
+2026-03-03 17:39:32,193 [INFO] 
+ET Top 5 Features:
+Is_NY               0.089544
+SMA_200             0.081081
+Is_London           0.073165
+SMA_50              0.059426
+Dist_From_High20    0.053006
+dtype: float64
+2026-03-03 17:39:59,542 [INFO] Walk-forward progress: 2400/4801
+2026-03-03 17:39:59,547 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:39:59,554 [INFO] Training gbm...
+2026-03-03 17:40:03,392 [INFO] Training rf...
+2026-03-03 17:40:04,335 [INFO] Training et...
+2026-03-03 17:40:04,778 [INFO] 
+GBM Top 5 Features:
+ADX                 0.075566
+BB_Width            0.072242
+SMA_20              0.070485
+Dist_From_SMA200    0.063147
+Return_Lag1         0.062516
+dtype: float64
+2026-03-03 17:40:04,913 [INFO] 
+RF Top 5 Features:
+MACD_Hist    0.075206
+SMA_200      0.069909
+SMA_50       0.068066
+BB_Width     0.067950
+ADX          0.065302
+dtype: float64
+2026-03-03 17:40:05,046 [INFO] 
+ET Top 5 Features:
+Is_NY        0.086278
+Is_London    0.079484
+SMA_200      0.078540
+SMA_50       0.067655
+SMA_20       0.061769
+dtype: float64
+2026-03-03 17:40:32,055 [INFO] Walk-forward progress: 2600/4801
+2026-03-03 17:40:32,103 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:40:32,105 [INFO] Training gbm...
+2026-03-03 17:40:35,921 [INFO] Training rf...
+2026-03-03 17:40:36,849 [INFO] Training et...
+2026-03-03 17:40:37,282 [INFO] 
+GBM Top 5 Features:
+ADX                 0.082631
+Return_Lag1         0.077129
+Dist_From_High20    0.067710
+Return_Lag4         0.063935
+SMA_20              0.062293
+dtype: float64
+2026-03-03 17:40:37,429 [INFO] 
+RF Top 5 Features:
+ADX                 0.070277
+MACD_Hist           0.066845
+BB_Width            0.065351
+Dist_From_High20    0.064319
+SMA_200             0.063155
+dtype: float64
+2026-03-03 17:40:37,564 [INFO] 
+ET Top 5 Features:
+Is_NY        0.112773
+SMA_200      0.082760
+Is_London    0.062377
+SMA_50       0.058687
+SMA_20       0.055201
+dtype: float64
+2026-03-03 17:41:05,517 [INFO] Walk-forward progress: 2800/4801
+2026-03-03 17:41:05,521 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:41:05,524 [INFO] Training gbm...
+2026-03-03 17:41:09,681 [INFO] Training rf...
+2026-03-03 17:41:10,709 [INFO] Training et...
+2026-03-03 17:41:11,166 [INFO] 
+GBM Top 5 Features:
+Return_Lag1         0.084263
+ADX                 0.074213
+Dist_From_High20    0.066311
+MACD_Hist           0.065085
+SMA_20              0.060575
+dtype: float64
+2026-03-03 17:41:11,302 [INFO] 
+RF Top 5 Features:
+MACD_Hist           0.071254
+BB_Width            0.066094
+Dist_From_High20    0.061622
+SMA_200             0.060084
+ADX                 0.058526
+dtype: float64
+2026-03-03 17:41:11,453 [INFO] 
+ET Top 5 Features:
+Is_NY        0.120079
+Is_London    0.069903
+SMA_200      0.068028
+MACD_Hist    0.059195
+SMA_20       0.056432
+dtype: float64
+2026-03-03 17:41:38,155 [INFO] Walk-forward progress: 3000/4801
+2026-03-03 17:41:38,159 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:41:38,161 [INFO] Training gbm...
+2026-03-03 17:41:42,606 [INFO] Training rf...
+2026-03-03 17:41:43,601 [INFO] Training et...
+2026-03-03 17:41:44,052 [INFO] 
+GBM Top 5 Features:
+BB_Width            0.071898
+Return_Lag1         0.071388
+MACD_Hist           0.070059
+RSI_Momentum        0.069986
+Dist_From_High20    0.068343
+dtype: float64
+2026-03-03 17:41:44,200 [INFO] 
+RF Top 5 Features:
+MACD_Hist           0.072763
+SMA_20              0.068083
+SMA_200             0.059533
+Dist_From_SMA200    0.059319
+RSI_Lag1            0.058649
+dtype: float64
+2026-03-03 17:41:44,336 [INFO] 
+ET Top 5 Features:
+Is_NY        0.119423
+Is_London    0.068182
+MACD_Hist    0.064365
+SMA_200      0.057001
+ATR          0.052246
+dtype: float64
+2026-03-03 17:42:14,605 [INFO] Walk-forward progress: 3200/4801
+2026-03-03 17:42:14,612 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:42:14,617 [INFO] Training gbm...
+2026-03-03 17:42:19,090 [INFO] Training rf...
+2026-03-03 17:42:20,114 [INFO] Training et...
+2026-03-03 17:42:20,574 [INFO] 
+GBM Top 5 Features:
+Return_Lag1         0.081124
+MACD_Hist           0.067376
+ADX                 0.067002
+RSI_Momentum        0.066822
+Dist_From_SMA200    0.065476
+dtype: float64
+2026-03-03 17:42:20,710 [INFO] 
+RF Top 5 Features:
+MACD_Hist          0.078559
+BB_Width           0.069771
+RSI                0.064672
+ATR_Ratio          0.063147
+Dist_From_Low20    0.057948
+dtype: float64
+2026-03-03 17:42:20,846 [INFO] 
+ET Top 5 Features:
+Is_NY               0.094135
+MACD_Hist           0.068848
+Is_London           0.061185
+SMA_200             0.060219
+Dist_From_High20    0.059815
+dtype: float64
+2026-03-03 17:43:03,490 [INFO] Walk-forward progress: 3400/4801
+2026-03-03 17:43:03,495 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:43:03,497 [INFO] Training gbm...
+2026-03-03 17:43:10,695 [INFO] Training rf...
+2026-03-03 17:43:12,284 [INFO] Training et...
+2026-03-03 17:43:13,032 [INFO] 
+GBM Top 5 Features:
+Dist_From_Low20     0.081555
+Return_Lag1         0.071477
+RSI_Momentum        0.064615
+Dist_From_SMA200    0.064254
+BB_Width            0.064201
+dtype: float64
+2026-03-03 17:43:13,247 [INFO] 
+RF Top 5 Features:
+MACD_Hist          0.072089
+BB_Width           0.062607
+Dist_From_Low20    0.062213
+RSI                0.061050
+ATR                0.058472
+dtype: float64
+2026-03-03 17:43:13,445 [INFO] 
+ET Top 5 Features:
+Is_NY               0.098426
+Is_London           0.068763
+SMA_200             0.062492
+MACD_Hist           0.058701
+Dist_From_High20    0.054600
+dtype: float64
+2026-03-03 17:43:53,058 [INFO] Walk-forward progress: 3600/4801
+2026-03-03 17:43:53,062 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:43:53,065 [INFO] Training gbm...
+2026-03-03 17:44:00,816 [INFO] Training rf...
+2026-03-03 17:44:02,704 [INFO] Training et...
+2026-03-03 17:44:03,484 [INFO] 
+GBM Top 5 Features:
+Return_Lag1         0.073325
+ADX                 0.071178
+Dist_From_Low20     0.068613
+Dist_From_High20    0.063224
+BB_Width            0.062920
+dtype: float64
+2026-03-03 17:44:03,717 [INFO] 
+RF Top 5 Features:
+MACD_Hist           0.079196
+ADX                 0.067919
+BB_Width            0.065894
+ATR_Ratio           0.062126
+Dist_From_High20    0.059334
+dtype: float64
+2026-03-03 17:44:03,965 [INFO] 
+ET Top 5 Features:
+Is_NY        0.102523
+SMA_200      0.068424
+Is_London    0.066558
+ADX          0.060365
+RSI          0.058527
+dtype: float64
+2026-03-03 17:44:46,233 [INFO] Walk-forward progress: 3800/4801
+2026-03-03 17:44:46,242 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:44:46,246 [INFO] Training gbm...
+2026-03-03 17:44:54,121 [INFO] Training rf...
+2026-03-03 17:44:55,885 [INFO] Training et...
+2026-03-03 17:44:56,789 [INFO] 
+GBM Top 5 Features:
+ADX                 0.081478
+Dist_From_Low20     0.070397
+Return_Lag1         0.065970
+Dist_From_SMA200    0.064917
+RSI_Momentum        0.064737
+dtype: float64
+2026-03-03 17:44:57,000 [INFO] 
+RF Top 5 Features:
+MACD_Hist           0.078276
+ADX                 0.067112
+Return_Lag4         0.063402
+ATR                 0.062209
+Dist_From_High20    0.062190
+dtype: float64
+2026-03-03 17:44:57,183 [INFO] 
+ET Top 5 Features:
+Is_NY               0.103229
+Is_London           0.072422
+Dist_From_High20    0.063042
+MACD_Hist           0.060686
+ADX                 0.059722
+dtype: float64
+2026-03-03 17:45:35,450 [INFO] Walk-forward progress: 4000/4801
+2026-03-03 17:45:35,465 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:45:35,485 [INFO] Training gbm...
+2026-03-03 17:45:45,201 [INFO] Training rf...
+2026-03-03 17:45:47,020 [INFO] Training et...
+2026-03-03 17:45:47,790 [INFO] 
+GBM Top 5 Features:
+Dist_From_Low20    0.075494
+ADX                0.071174
+RSI_Momentum       0.066563
+Return_Lag4        0.063914
+BB_Position        0.062019
+dtype: float64
+2026-03-03 17:45:47,986 [INFO] 
+RF Top 5 Features:
+MACD_Hist          0.068101
+Return_Lag4        0.067188
+ADX                0.063334
+Dist_From_Low20    0.060167
+Return_Lag1        0.059675
+dtype: float64
+2026-03-03 17:45:48,153 [INFO] 
+ET Top 5 Features:
+Is_NY        0.105865
+Is_London    0.071623
+MACD_Hist    0.060917
+SMA_200      0.059256
+RSI          0.055187
+dtype: float64
+2026-03-03 17:46:25,619 [INFO] Walk-forward progress: 4200/4801
+2026-03-03 17:46:25,623 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:46:25,633 [INFO] Training gbm...
+2026-03-03 17:46:34,119 [INFO] Training rf...
+2026-03-03 17:46:35,743 [INFO] Training et...
+2026-03-03 17:46:36,505 [INFO] 
+GBM Top 5 Features:
+ADX                 0.083999
+Return_Lag4         0.072327
+Return_Lag1         0.067651
+Dist_From_High20    0.067121
+BB_Position         0.066866
+dtype: float64
+2026-03-03 17:46:36,689 [INFO] 
+RF Top 5 Features:
+BB_Width       0.067237
+MACD_Hist      0.066559
+RSI            0.064809
+BB_Position    0.064609
+ADX            0.063964
+dtype: float64
+2026-03-03 17:46:36,858 [INFO] 
+ET Top 5 Features:
+Is_NY               0.091746
+Is_London           0.080676
+Dist_From_High20    0.062692
+ADX                 0.061873
+SMA_50              0.058880
+dtype: float64
+2026-03-03 17:47:10,064 [INFO] Walk-forward progress: 4400/4801
+2026-03-03 17:47:10,068 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:47:10,071 [INFO] Training gbm...
+2026-03-03 17:47:18,552 [INFO] Training rf...
+2026-03-03 17:47:23,504 [INFO] Training et...
+2026-03-03 17:47:24,967 [INFO] 
+GBM Top 5 Features:
+ADX                 0.079815
+Dist_From_Low20     0.075699
+Return_Lag4         0.067183
+Dist_From_High20    0.060926
+Return_Lag1         0.060580
+dtype: float64
+2026-03-03 17:47:25,203 [INFO] 
+RF Top 5 Features:
+ADX                0.066754
+Return_Lag1        0.064251
+Return_Lag4        0.062427
+ATR                0.060002
+Dist_From_Low20    0.059405
+dtype: float64
+2026-03-03 17:47:25,540 [INFO] 
+ET Top 5 Features:
+Is_NY              0.096151
+Is_London          0.090356
+RSI                0.063024
+ADX                0.055483
+Dist_From_Low20    0.055161
+dtype: float64
+2026-03-03 17:47:54,655 [INFO] Walk-forward progress: 4600/4801
+2026-03-03 17:47:54,661 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 17:47:54,665 [INFO] Training gbm...
+2026-03-03 17:48:01,928 [INFO] Training rf...
+2026-03-03 17:48:03,635 [INFO] Training et...
+2026-03-03 17:48:04,199 [INFO] 
+GBM Top 5 Features:
+ADX                0.086440
+Dist_From_Low20    0.068230
+RSI_Momentum       0.068203
+Return_Lag4        0.066518
+Return_Lag1        0.062829
+dtype: float64
+2026-03-03 17:48:04,324 [INFO] 
+RF Top 5 Features:
+ADX             0.065544
+Return_Lag4     0.065360
+RSI_Momentum    0.059744
+Return_Lag1     0.059662
+ATR             0.059310
+dtype: float64
+2026-03-03 17:48:04,495 [INFO] 
+ET Top 5 Features:
+Is_NY               0.082012
+Is_London           0.074630
+RSI                 0.068319
+Dist_From_High20    0.057805
+Dist_From_Low20     0.055846
+dtype: float64
+2026-03-03 17:48:56,217 [INFO] Walk-forward progress: 4800/4801
+2026-03-03 17:48:56,247 [INFO] 
+Walk-Forward Results:
+{'accuracy': 0.5, 'precision': 0.5833333333333334, 'recall': 0.7, 'f1': 0.6363636363636364, 'total_trades': 16}
+2026-03-03 17:48:56,256 [INFO] Mock exam PASSED - strategy meets minimum criteria
+2026-03-03 17:48:56,260 [INFO] ============================================================
+2026-03-03 17:48:56,261 [INFO] LIVE TRADING STARTED
+2026-03-03 17:48:56,262 [INFO] ============================================================
+2026-03-03 18:00:26,539 [INFO] Analyzing market at 2026-03-03 18:00:26.306137
+2026-03-03 18:00:27,371 [INFO] Retraining ensemble models on fresh data...
+2026-03-03 18:00:27,401 [INFO] Ensemble initialized with GBM, Random Forest, and Extra Trees
+2026-03-03 18:00:27,493 [INFO] Training gbm...
+2026-03-03 18:00:28,989 [INFO] Training rf...
+2026-03-03 18:00:29,998 [INFO] Training et...
+2026-03-03 18:00:30,410 [INFO] 
+GBM Top 5 Features:
+RSI_Momentum        0.095531
+Dist_From_High20    0.084710
+RSI                 0.077201
+Return_Lag1         0.073904
+ADX                 0.071296
+dtype: float64
+2026-03-03 18:00:30,515 [INFO] 
+RF Top 5 Features:
+Return_Lag1         0.086193
+RSI_Momentum        0.077691
+SMA_20              0.077537
+Dist_From_High20    0.075154
+Dist_From_Low20     0.073965
+dtype: float64
+2026-03-03 18:00:30,615 [INFO] 
+ET Top 5 Features:
+Trend_Alignment     0.126751
+Dist_From_SMA200    0.078071
+Return_Lag1         0.075870
+Is_NY               0.067640
+SMA_20              0.056826
+dtype: float64
+2026-03-03 18:00:30,615 [INFO] Models retrained successfully
+2026-03-03 18:00:30,765 [INFO] ADX: 40.00, Agreement: 3/3, Threshold: 0.65
+2026-03-03 18:00:30,765 [INFO] Probabilities: SELL 38.7% | BUY 61.3%
+2026-03-03 18:00:30,770 [INFO] Confidence below threshold - no trade
+2026-03-03 18:01:30,789 [INFO] Analyzing market at 2026-03-03 18:01:30.773426
+2026-03-03 18:01:31,200 [INFO] ADX: 40.00, Agreement: 3/3, Threshold: 0.65
+2026-03-03 18:01:31,210 [INFO] Probabilities: SELL 38.9% | BUY 61.1%
+2026-03-03 18:01:31,213 [INFO] Confidence below threshold - no trade
+2026-03-03 18:02:31,227 [INFO] Analyzing market at 2026-03-03 18:02:31.216292
+2026-03-03 18:02:31,406 [INFO] ADX: 40.00, Agreement: 3/3, Threshold: 0.65
+2026-03-03 18:02:31,406 [INFO] Probabilities: SELL 40.6% | BUY 59.4%
+2026-03-03 18:02:31,407 [INFO] Confidence below threshold - no trade
+2026-03-03 19:00:04,372 [INFO] Analyzing market at 2026-03-03 19:00:01.712692
+2026-03-03 19:00:08,838 [INFO] ADX: 40.00, Agreement: 3/3, Threshold: 0.65
+2026-03-03 19:00:08,842 [INFO] Probabilities: SELL 37.4% | BUY 62.6%
+2026-03-03 19:00:08,848 [INFO] Confidence below threshold - no trade
+2026-03-03 19:01:08,858 [INFO] Analyzing market at 2026-03-03 19:01:08.849107
+2026-03-03 19:01:09,060 [INFO] ADX: 40.00, Agreement: 3/3, Threshold: 0.65
+2026-03-03 19:01:09,062 [INFO] Probabilities: SELL 37.8% | BUY 62.2%
+2026-03-03 19:01:09,063 [INFO] Confidence below threshold - no trade
+2026-03-03 19:02:09,085 [INFO] Analyzing market at 2026-03-03 19:02:09.065230
+2026-03-03 19:02:09,374 [INFO] ADX: 40.00, Agreement: 3/3, Threshold: 0.65
+2026-03-03 19:02:09,376 [INFO] Probabilities: SELL 37.8% | BUY 62.2%
+2026-03-03 19:02:09,377 [INFO] Confidence below threshold - no trade
